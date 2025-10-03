@@ -15,11 +15,12 @@ int main() {
                 printf("%d\n",arr[a-1]);
             }
             else if(start==2){
+                flag=0;
                 scanf("%d ",&b);
-                for(int i=0;i<n;i++){
-                    if(arr[i]==b){
+                for(int j=0;j<n;j++){
+                    if(arr[j]==b){
                         flag=1;
-                        printf("%d\n",i+1);
+                        printf("%d\n",j+1);
                     break;
                     }
                 }
@@ -29,8 +30,8 @@ int main() {
             }
             else if(start==3){
                 scanf("%d %d",&s,&e);
-                for(int i=s-1;i<e;i++){
-                    printf("%d ",arr[i]);
+                for(int j=s-1;j<e;j++){
+                    printf("%d ",arr[j]);
                 }
                 printf("\n");
             }

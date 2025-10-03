@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <limits.h>
 
 int main() {
     // Please write your code here.
-    int n,arr[100],max=0,max2=0,k;
+    int n,arr[100],max=INT_MIN,max2=INT_MIN,k;
     scanf("%d ",&n);
     for(int i=0;i<n;i++){
         scanf("%d ",&arr[i]);

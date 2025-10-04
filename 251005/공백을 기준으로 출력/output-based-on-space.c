@@ -10,7 +10,7 @@ int main() {
             printf("%c",str1[i]);
         }
     }
-    for(int i=0;i<strlen(str2)-1;i++){
+    for(int i=0;i<strlen(str2);i++){
         if(str2[i]!=' '){
             printf("%c",str2[i]);
         }

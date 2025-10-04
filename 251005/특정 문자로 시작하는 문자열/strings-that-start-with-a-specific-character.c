@@ -9,13 +9,12 @@ int main() {
     }
     scanf(" %c",&c);
     for(int i=0;i<n;i++){
-        if(arr[i][0]=='c'){
+        if(arr[i][0]==c){
             cnt++;
             sum+=strlen(arr[i]);
         }
     }
     double avg = (double)sum/cnt;
     printf("%d %.2lf",cnt,avg);
-
     return 0;
 }

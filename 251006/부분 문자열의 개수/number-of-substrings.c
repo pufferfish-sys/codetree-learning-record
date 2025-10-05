@@ -2,29 +2,20 @@
 #include <string.h>
 
 int main() {
-    char a[1000];
-    char b[10];  // 안전하게 여유 공간 확보
-    int flag = 0;
-
+    char a[1001];
+    char b[3];
+    int ans = 0;
+    
     scanf("%s", a);
     scanf("%s", b);
-
-    int lenA = strlen(a);
-    int lenB = strlen(b);
-
-    for (int i = 0; i <= lenA - lenB; i++) {
-        int match = 1;
-        for (int j = 0; j < lenB; j++) {
-            if (a[i + j] != b[j]) {
-                match = 0;
-                break;
-            }
-        }
-        if (match) {
-            flag++;  // 완전히 일치할 때만 카운트 증가
-        }
-    }
-
-    printf("%d", flag);
+    
+    int len = strlen(a);
+    
+    for(int i = 0; i < len - 1; i++)
+        if(a[i] == b[0] && a[i + 1] == b[1])
+            ans++;
+    
+    printf("%d\n", ans);
+    
     return 0;
 }

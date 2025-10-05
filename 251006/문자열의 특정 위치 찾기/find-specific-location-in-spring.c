@@ -5,7 +5,7 @@ int main() {
     char a[20],c;
     int flag=-1;
     scanf("%s",a);scanf(" %c",&c);
-    for(int i=0;i<strlen(a)-1;i++){
+    for(int i=0;i<strlen(a);i++){
         if(a[i]==c){
             flag=i;
             break;

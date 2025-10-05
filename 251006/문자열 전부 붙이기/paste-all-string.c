@@ -4,7 +4,7 @@ int main() {
     // Please write your code here.
     int n;
     scanf("%d ",&n);
-    char arr[100]="";
+    char arr[1000]="";
     for(int i=0;i<n;i++){
         char arr2[100];
         scanf("%s",arr2);

@@ -26,7 +26,7 @@ int main() {
     printf("%s\n",s);
     }
 else {
-    char temp[100];
+    char temp[1000];
     strcpy(temp, s);
     for (int i = 0; i < len; i++) {
         s[i] = temp[len - 1 - i];

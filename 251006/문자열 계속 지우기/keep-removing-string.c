@@ -20,7 +20,7 @@ int main() {
                         a[k - len2] = a[k];
                     }
                     len -= len2;    // 길이 조정
-                    i = -1;         // 전체 다시 탐색 
+                    i--;         // 전체 다시 탐색 
                     break;
                 }
             } else {

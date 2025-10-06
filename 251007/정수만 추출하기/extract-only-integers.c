@@ -4,7 +4,7 @@
 #include <ctype.h>
 
 int main() {
-    char a[8], b[8];
+    char a[9], b[9];
     scanf("%s", a);
     scanf("%s", b);
     for (int i = 0; i < strlen(a); i++) {

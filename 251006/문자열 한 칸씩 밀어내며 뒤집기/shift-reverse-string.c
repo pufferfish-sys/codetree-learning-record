@@ -25,14 +25,16 @@ int main() {
     s[0]=temp;
     printf("%s\n",s);
     }
-    else {
-    for (int i = 0; i < len / 2; i++) {
-        char t = s[i];
-        s[i] = s[len - 1 - i];
-        s[len - 1 - i] = t;
+else {
+    char temp[100];
+    strcpy(temp, s);
+    for (int i = 0; i < len; i++) {
+        s[i] = temp[len - 1 - i];
     }
+    s[len] = '\0'; // 문자열 끝 표시 필수!
     printf("%s\n", s);
 }
+
     }
     return 0;
 }

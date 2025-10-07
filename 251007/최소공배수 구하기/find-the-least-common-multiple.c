@@ -2,6 +2,11 @@
 
 void star(int n, int m) {
     int a = m;
+    if(n>m){
+        int temp = n;
+        n=m;
+        m=temp;
+    }
     for (int i = n; ; i += n) {
         if (i == a) {
             printf("%d", i);

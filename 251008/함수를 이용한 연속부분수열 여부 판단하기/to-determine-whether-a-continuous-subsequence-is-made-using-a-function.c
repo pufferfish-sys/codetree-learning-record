@@ -3,18 +3,17 @@
 int n1, n2;
 int a[100], b[100];
 
-void aff() {
-    int n = 0;
-    for (int i = 0; i < n1; i++) {
-        if (a[i] == b[n]) {
-            n++;
-            if (n == n2) {
-                printf("Yes\n");
-                return;
-            }
-        } else {
-            if (n > 0) i -= n;
-            n = 0;
+void aff(){
+    for(int i = 0; i <= n1 - n2; i++){
+        int match = 1;
+        for(int j = 0; j < n2; j++){
+            if(a[i+j] != b[j]){
+                match = 0;
+                break;
+            }}
+        if(match){
+            printf("Yes\n");
+            return;
         }
     }
     printf("No\n");

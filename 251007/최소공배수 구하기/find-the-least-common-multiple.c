@@ -2,7 +2,7 @@
 
 void star(int n,int m){
     int a=m;
-    for(int i=n;i<=100;i+=n){
+    for(int i=n;i<=10000;i+=n){
         if(i==a){printf("%d",i);break;}
         if(i>a){a+=m;}
    }

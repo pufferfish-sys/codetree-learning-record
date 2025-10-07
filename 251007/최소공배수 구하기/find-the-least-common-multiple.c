@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 void star(int n, int m) {
-    int a = m;
     if(n>m){
         int temp = n;
         n=m;
         m=temp;
     }
+        int a = m;
     for (int i = n; ; i += n) {
         if (i == a) {
             printf("%d", i);

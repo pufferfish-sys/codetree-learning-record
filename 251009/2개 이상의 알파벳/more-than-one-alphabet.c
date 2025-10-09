@@ -2,23 +2,23 @@
 #include <string.h>
 char A[101];
 
-void add(char *arr){
+int add(char *arr){
     char a=arr[0];
-    int flag=0;
-    for(int i=1;i<strlen(arr);i++){
+    int flag=0,len=strlen(arr);
+    for(int i=1;i<len;i++){
         if(a!=arr[i]){
-            flag=1; break;
+            flag=1; return flag;
         }
     }
-    if(!flag) printf("No");
-    else printf("Yes");
+    return flag;
 }
 
 
 
 int main() {
     scanf("%s", A);
-    add(A);
-    
+    int n = add(A);
+    if(n) printf("Yes");
+    else printf("No");
     return 0;
 }

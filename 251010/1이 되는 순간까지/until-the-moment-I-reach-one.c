@@ -1,13 +1,9 @@
 #include <stdio.h>
 
-int cnt=0;
-
 int sumf(int N){
-
-    if(N==1) return cnt;
-    cnt++;
-    if(N%2==0) sumf(N/2);
-    else sumf(N/3);
+    if(N==1) return 0;
+    if(N%2==0) return sumf(N/2)+1;
+    else return sumf(N/3)+1;
 }
 
 int main() {

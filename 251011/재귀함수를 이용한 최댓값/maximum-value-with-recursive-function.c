@@ -3,7 +3,7 @@
 int arr[100];
 
 int maxf(int n){
-    if (n == 1) return arr[0];
+    if (n == 0) return arr[0];
     int max = maxf(n - 1);
     if (arr[n - 1] > max)
         return arr[n - 1];
@@ -19,6 +19,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
-    printf("%d",maxf(n-1));
+    printf("%d",maxf(n));
     return 0;
 }

@@ -16,22 +16,20 @@ int main() {
         cin >> str[i];
     }
 
-    // 전체 배열 정렬
+    // 전체 배열 사전순 정렬
     sort(str, str + n);
 
-    // T 포함 문자열만 배열의 앞쪽으로 이동시키고 개수 셈
-    int m = 0;
+    int cnt = 0;
     for (int i = 0; i < n; i++) {
         if (str[i].find(T) != string::npos) {
-            swap(str[i], str[m]);
-            m++;
+            cnt++;
+            if (cnt == k) {
+                cout << str[i];
+                return 0;
+            }
         }
     }
 
-    // T 포함 문자열만 정렬
-    sort(str, str + m);
-    cout << str[k - 1];
-
+    cout << "NO"; // k번째 T 포함 문자열이 없으면
     return 0;
 }
-

@@ -15,16 +15,23 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> str[i];
     }
+
+    // 전체 배열 정렬
     sort(str, str + n);
-    int cnt = 0; // T를 포함하는 문자열을 몇 개 만났는지 카운트
+
+    // T 포함 문자열만 배열의 앞쪽으로 이동시키고 개수 셈
+    int m = 0;
     for (int i = 0; i < n; i++) {
         if (str[i].find(T) != string::npos) {
-            cnt++;
-            if (cnt == k) {       // k번째 발견 시 출력
-                cout << str[i];
-                return 0;
-            }
+            swap(str[i], str[m]);
+            m++;
         }
     }
+
+    // T 포함 문자열만 정렬
+    sort(str, str + m);
+    cout << str[k - 1];
+
     return 0;
 }
+

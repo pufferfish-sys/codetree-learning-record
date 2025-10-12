@@ -16,13 +16,15 @@ int main() {
         cin >> str[i];
     }
     sort(str, str + n);
-    int cnt = -1;
+    int cnt = 0; // T를 포함하는 문자열을 몇 개 만났는지 카운트
     for (int i = 0; i < n; i++) {
         if (str[i].find(T) != string::npos) {
-            cnt = i;
-            break;
+            cnt++;
+            if (cnt == k) {       // k번째 발견 시 출력
+                cout << str[i];
+                return 0;
+            }
         }
     }
-    cout << str[cnt + k - 1];
     return 0;
 }

@@ -1,35 +1,36 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
+#include <string.h>
+#include <vector>
+
+#define MAX 1000
 using namespace std;
 
-#define Max_N 100
+string uniqueStr()
+{
+	char keyStr[MAX];
+	char str[MAX];
+	int n = 0, k = 0;
+	cin >> n >> k >> keyStr;
+	int strLength = strlen(keyStr);
+	vector<string> str_vector;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> str;
+		if (strncmp(str, keyStr, strLength) == 0)
+		{
+			str_vector.push_back(str);
+		}
+		else {
+			continue;
+		}
+	}
+	sort(str_vector.begin(), str_vector.end());
 
-int n, k;
-string T;
-string str[Max_N];
-
-int main() {
-    cin >> n >> k >> T;
-
-    for (int i = 0; i < n; i++) {
-        cin >> str[i];
-    }
-
-    // 전체 배열 사전순 정렬
-    sort(str, str + n);
-
-    int cnt = 0;
-    for (int i = 0; i < n; i++) {
-        if (str[i].find(T) != string::npos) {
-            cnt++;
-            if (cnt == k) {
-                cout << str[i];
-                return 0;
-            }
-        }
-    }
-
-    cout << "NO"; // k번째 T 포함 문자열이 없으면
-    return 0;
+	return str_vector.at(k-1);
+}
+int main(void)
+{
+	cout << uniqueStr();
+	return 0;
 }

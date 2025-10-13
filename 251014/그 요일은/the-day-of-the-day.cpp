@@ -16,8 +16,7 @@ int main() {
         if(week_of_days[week]==A) cnt++;
         if(month==m2&&day==d2) break;
         day++;
-        week++;
-        if(week>7) week=1;
+        week = (week+1)%7;
         if(day>num_of_days[month]){
             day=1;
             month++;

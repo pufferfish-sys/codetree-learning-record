@@ -19,12 +19,12 @@ int main() {
         scanf("%s %s %s", people[i].name, people[i].address, people[i].region);
     }
 
-    // 정렬: name 기준 오름차순
-    sort(people, people + n, [](const Person &a, const Person &b) {
-        return strcmp(a.name, b.name) < 0; // strcmp < 0이면 a < b
-    });
+    int last_idx = 0;
+    for(int i = 1; i < n; i++) {
+        if(people[i].name > people[last_idx].name)
+            last_idx = i;
+    }
 
-    // 가장 사전적으로 늦은 사람: 마지막 원소
     printf("name %s\n", people[n-1].name);
     printf("addr %s\n", people[n-1].address);
     printf("city %s\n", people[n-1].region);

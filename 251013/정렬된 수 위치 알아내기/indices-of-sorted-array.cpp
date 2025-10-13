@@ -27,8 +27,7 @@ int main() {
     }
     sort(seq1+1,seq1+N+1,cmp);
     for (int i = 1; i <= N; i++) {
-        int index = seq1[i].n;
-        new_pos[index] = i;
+        new_pos[seq1[i].n] = i;
     }
 
     for (int i = 1; i <= N; i++) {

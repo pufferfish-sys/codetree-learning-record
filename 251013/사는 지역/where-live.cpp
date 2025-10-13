@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include <string>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
 typedef struct{
@@ -19,11 +21,10 @@ int main() {
         scanf("%s %s %s", people[i].name, people[i].address, people[i].region);
     }
 
-    int last_idx = 0;
+  int last_idx = 0;
     for(int i = 1; i < n; i++) {
-        if(strcmp(people[i].name, people[last_idx].name) > 0) {
+        if(people[i].name > people[last_idx].name)
             last_idx = i;
-        }
     }
 
     printf("name %s\n", people[n-1].name);
@@ -32,3 +33,4 @@ int main() {
 
     return 0;
 }
+

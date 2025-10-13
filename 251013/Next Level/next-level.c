@@ -6,11 +6,6 @@ struct Level {
     int lv;
 };
 
-void initLevel(struct Level *user, const char *id, int lv) {
-    strcpy(user->id, id);  // 문자열 복사
-    user->lv = lv;         // 레벨 설정
-}
-
 int main() {
     char user2_id[100];
     int user2_level;
@@ -18,13 +13,16 @@ int main() {
     scanf("%s %d", user2_id, &user2_level);
 
     struct Level level1;
-    struct Level level2;
+    strcpy(level1.id, "codetree");
+    level1.lv = 10;
 
-    initLevel(&level1, "codetree", 10);
-    initLevel(&level2, user2_id, user2_level);
+    struct Level level2;
+    strcpy(level2.id, user2_id);
+    level2.lv = user2_level;
 
     printf("user %s lv %d\n", level1.id, level1.lv);
     printf("user %s lv %d\n", level2.id, level2.lv);
 
     return 0;
 }
+

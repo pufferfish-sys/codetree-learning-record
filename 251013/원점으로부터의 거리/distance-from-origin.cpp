@@ -1,7 +1,8 @@
 #include <iostream>
 #include <algorithm>
-using namespace std;
 #include <cmath>
+using namespace std;
+
 int N;
 int x[1000];
 int y[1000];
@@ -15,7 +16,7 @@ class Compare{
         }
 };
 bool cmp(Compare A, Compare B){
-    return abs(A.a+A.b)<abs(B.a+B.b);
+    return abs(A.a)+abs(A.b)<abs(B.a)+abs(B.b);
 }
 Compare com[1000];
 int main() {
@@ -29,7 +30,6 @@ int main() {
     for (int i = 0; i < N; i++) {
         cout << com[i].n<<endl;
     }
-
 
     return 0;
 }

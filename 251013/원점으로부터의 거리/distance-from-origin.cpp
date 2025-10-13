@@ -16,6 +16,9 @@ class Compare{
         }
 };
 bool cmp(Compare A, Compare B) {
+    if((abs(A.a) + abs(A.b)) == (abs(B.a) + abs(B.b))){
+        return A.n<B.n;
+    }
     return (abs(A.a) + abs(A.b)) < (abs(B.a) + abs(B.b));
 }
 Compare com[1001];

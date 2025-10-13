@@ -9,15 +9,14 @@ int main() {
     cin >> m1 >> d1 >> m2 >> d2 >>A;
     int month = m1, day =d1;
     int num_of_days[13] = {0,31,29,31,30,31,30,31,31,30,31,30,31};
-    string week_of_days[8] = {"","Mon","Tue","Wed","Thu","Fri","Sat","Sun"};
-    int week =1,cnt=0;
+    string week_of_days[7] = {"Mon","Tue","Wed","Thu","Fri","Sat","Sun"};
+    int week =0,cnt=0;
 
     while(true){
         if(week_of_days[week]==A) cnt++;
         if(month==m2&&day==d2) break;
         day++;
-        week++;
-        if(week > 7) week = 1;
+        week = (week+1)%7;
         if(day>num_of_days[month]){
             day=1;
             month++;

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <iomanip>
 using namespace std;
 
 string name[5];
@@ -29,21 +28,23 @@ int main() {
         students[i] = Student(name[i],height[i],weight[i]); 
     }
     
+    cout << fixed;
+	cout.precision(1);
+
     sort(students,students+5,cmp1);
     cout << "name" << endl;
     for (int i = 0; i < 5; i++){
         cout << students[i].na << " ";
         cout << students[i].hei << " ";
-        cout<<fixed<<setprecision(1) << students[i].wei << endl;
+        cout << students[i].wei << endl;
     }
     sort(students,students+5,cmp2);
     cout << endl <<"height" << endl;
     for (int i = 0; i < 5; i++){
         cout << students[i].na << " ";
         cout << students[i].hei << " ";
-        cout << fixed <<setprecision(1) << students[i].wei << endl;
+        cout << students[i].wei << endl;
     }
-    // Please write your code here.
 
     return 0;
 }

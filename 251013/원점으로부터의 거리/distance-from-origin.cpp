@@ -15,8 +15,8 @@ class Compare{
             this -> n=n;
         }
 };
-bool cmp(Compare A, Compare B){
-    return abs(A.a)+abs(A.b)<abs(B.a)+abs(B.b);
+bool cmp(Compare A, Compare B) {
+    return (abs(A.a) + abs(A.b)) < (abs(B.a) + abs(B.b));
 }
 Compare com[1000];
 int main() {

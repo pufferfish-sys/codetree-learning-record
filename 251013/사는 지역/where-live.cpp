@@ -21,8 +21,9 @@ int main() {
 
     int last_idx = 0;
     for(int i = 1; i < n; i++) {
-        if(people[i].name > people[last_idx].name)
+        if(strcmp(people[i].name, people[last_idx].name) > 0) {
             last_idx = i;
+        }
     }
 
     printf("name %s\n", people[n-1].name);

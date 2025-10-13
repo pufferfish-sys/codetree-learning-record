@@ -8,7 +8,7 @@ string A;
 int main() {
     cin >> m1 >> d1 >> m2 >> d2 >>A;
     int month = m1, day =d1;
-    int num_of_days[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+    int num_of_days[13] = {0,31,29,31,30,31,30,31,31,30,31,30,31};
     string week_of_days[8] = {"","Mon","Tue","Wed","Thu","Fri","Sat","Sun"};
     int week =1,cnt=0;
 

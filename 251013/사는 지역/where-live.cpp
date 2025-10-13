@@ -1,9 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <string>
-#include <algorithm>
-#include <iostream>
-using namespace std;
 
 typedef struct{
     char name[11];
@@ -21,15 +17,16 @@ int main() {
         scanf("%s %s %s", people[i].name, people[i].address, people[i].region);
     }
 
-  int last_idx = 0;
+    int last_idx = 0;
     for(int i = 1; i < n; i++) {
-        if(people[i].name > people[last_idx].name)
+        if(strcmp(people[i].name, people[last_idx].name) > 0) {
             last_idx = i;
+        }
     }
 
-    printf("name %s\n", people[n-1].name);
-    printf("addr %s\n", people[n-1].address);
-    printf("city %s\n", people[n-1].region);
+    printf("name %s\n", people[last_idx].name);
+    printf("addr %s\n", people[last_idx].address);
+    printf("city %s\n", people[last_idx].region);
 
     return 0;
 }

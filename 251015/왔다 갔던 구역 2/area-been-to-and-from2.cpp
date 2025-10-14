@@ -16,12 +16,12 @@ int main() {
     int spot =100;
     for(int i=0;i<n;i++){
         if(dir[i]=='R'){
-        for(int j=spot;j<spot+x[i];j++){
+        for(int j=spot;j<=spot+x[i];j++){
             block[j]++;
         }spot+=x[i];
         }
         if(dir[i]=='L'){
-            for(int j=spot;j>spot-x[i];j--){
+            for(int j=spot;j>=spot-x[i];j--){
                 block[j]++;
             }
             spot-=x[i];

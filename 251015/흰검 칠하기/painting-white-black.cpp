@@ -11,12 +11,12 @@ struct Tile {
     char color = ' '; // ' '=빈, 'W'=흰색, 'B'=검은색, 'G'=회색
 };
 
-Tile block[10000]; // 충분히 큰 배열
+Tile block[1000000]; // 충분히 큰 배열
 int main() {
     cin >> n;
     for(int i=0;i<n;i++) cin >> x[i] >> dir[i];
 
-    int spot = 5000; // 중앙 시작
+    int spot = 500000; // 중앙 시작
 
     for(int i=0;i<n;i++){
         if(dir[i]=='R'){ // 오른쪽
@@ -47,7 +47,7 @@ int main() {
     }
 
     int cntW=0, cntB=0, cntG=0;
-    for(int i=0;i<10000;i++){
+    for(int i=0;i<1000000;i++){
         if(block[i].color=='W') cntW++;
         else if(block[i].color=='B') cntB++;
         else if(block[i].color=='G') cntG++;

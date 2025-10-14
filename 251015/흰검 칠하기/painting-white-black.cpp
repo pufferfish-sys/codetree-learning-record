@@ -1,59 +1,51 @@
 #include <iostream>
+
 using namespace std;
 
+#define MAX_K 100000
+
 int n;
-int x[1000];
-char dir[1000];
+int a[2 * MAX_K + 1];
+int cnt_b[2 * MAX_K + 1];
+int cnt_w[2 * MAX_K + 1];
+int b, w, g;
 
-struct Tile {
-    int w_count = 0;
-    int b_count = 0;
-    char color = ' '; // ' '=빈, 'W'=흰색, 'B'=검은색, 'G'=회색
-};
-
-Tile block[1000000]; // 충분히 큰 배열
 int main() {
+    // 변수 입력
     cin >> n;
-    for(int i=0;i<n;i++) cin >> x[i] >> dir[i];
 
-    int spot = 500000; // 중앙 시작
+    int cur = MAX_K;
 
-    for(int i=0;i<n;i++){
-        if(dir[i]=='R'){ // 오른쪽
-            for(int j=spot; j<spot + x[i]; j++){
-                if(block[j].color=='G') continue; // 회색은 변경 불가
-
-                block[j].b_count++;
-                if(block[j].b_count>=2 && block[j].w_count>=2){
-                    block[j].color='G';
-                } else {
-                    block[j].color='B'; // 마지막 칠한 색
-                }
+    for(int i = 1; i <= n; i++) {
+        int x;
+        char c;
+        cin >> x >> c;
+        if(c == 'L') {
+            // x칸 왼쪽으로 칠합니다.
+            while(x--) {
+                a[cur] = 1;
+                cnt_w[cur]++;
+                if(x) cur--;
             }
-            spot += x[i]-1; // 마지막 칠한 위치에 서있음
-        } else if(dir[i]=='L'){ // 왼쪽
-            for(int j=spot; j>spot - x[i]; j--){
-                if(block[j].color=='G') continue;
-
-                block[j].w_count++;
-                if(block[j].b_count>=2 && block[j].w_count>=2){
-                    block[j].color='G';
-                } else {
-                    block[j].color='W';
-                }
+        }
+        else {
+            // x칸 오른쪽으로 칠합니다.
+            while(x--) {
+                a[cur] = 2;
+                cnt_b[cur]++;
+                if(x) cur++;
             }
-            spot -= x[i]-1; // 마지막 칠한 위치에 서있음
         }
     }
 
-    int cntW=0, cntB=0, cntG=0;
-    for(int i=0;i<1000000;i++){
-        if(block[i].color=='W') cntW++;
-        else if(block[i].color=='B') cntB++;
-        else if(block[i].color=='G') cntG++;
+    for(int i = 0; i <= 2 * MAX_K; i++) {
+        // 검은색과 흰색으로 두 번 이상 칠해진 타일은 회색입니다.
+        if(cnt_b[i] >= 2 && cnt_w[i] >= 2) g++;
+        // 그렇지 않으면 현재 칠해진 색깔이 곧 타일의 색깔입니다.
+        else if(a[i] == 1) w++;
+        else if(a[i] == 2) b++;
     }
 
-    cout << cntW << " " << cntB << " " << cntG;
-
+    cout << w << " " << b << " " << g;
     return 0;
 }

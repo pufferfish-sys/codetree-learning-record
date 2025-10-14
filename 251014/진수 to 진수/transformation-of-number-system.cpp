@@ -4,7 +4,13 @@ using namespace std;
 
 int a, b;
 string n;
-int digits[20]={};
+
+int maketen(int j,string binary){
+    int num = 0;
+    for (int i = 0; i < binary.size(); i++)
+        num = num * j + (binary[i] - '0');
+    return num;
+}
 
 void ten_to_other(int N,int B){
     int digits[20] ={};
@@ -21,12 +27,7 @@ void ten_to_other(int N,int B){
         cout << digits[i];
     }
 }
-int maketen(int j,string binary){
-    int num = 0;
-    for (int i = 0; i < binary.size(); i++)
-        num = num * j + (binary[i] - '0');
-    return num;
-}
+
 int main() {
     cin >> a >> b;
     cin >> n;

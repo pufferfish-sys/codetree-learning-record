@@ -19,29 +19,32 @@ int main() {
                 square[i][j]=0;
             }
     }
-    int xstart = 2000, ystart = 2000;
-    int xlast = 0, ylast = 0;
+    int xstart = 0, ystart = 0;
+    int xlast = 0, ylast = 0; int flag=0;
     for(int i=x1[0]+1000;i<x2[0]+1000;i++){
         for(int j=y1[0]+1000;j<y2[0]+1000;j++){
-             if(square[i][j]==1) {ylast=j;}
+            
+             if(square[i][j]==1) {flag=1;ylast=j;}
         }
     }
     for(int i=y1[0]+1000;i<y2[0]+1000;i++){
         for(int j=x1[0]+1000;j<x2[0]+1000;j++){
-             if(square[j][i]==1) {xlast=j;}
+             if(square[j][i]==1) {flag=1;xlast=j;}
         }
     }
     for(int i=x2[0]+999;i>=x1[0]+1000;i--){
         for(int j=y2[0]+999;j>=y1[0]+1000;j--){
-             if(square[i][j]==1) {ystart=j;}
+             if(square[i][j]==1) {flag=1;ystart=j;}
         }
     }
     for(int i=y2[0]+999;i>=y1[0]+1000;i--){
         for(int j=x2[0]+999;j>=x1[0]+1000;j--){
-             if(square[j][i]==1) {xstart=j;}
+             if(square[j][i]==1) {flag=1;xstart=j;}
         }
     }
-    int area = (ylast-ystart+1)*(xlast-xstart+1);
+    int area;
+    if(!flag) area=0; 
+    else area =(ylast-ystart+1)*(xlast-xstart+1);
     cout<< area;
 
 

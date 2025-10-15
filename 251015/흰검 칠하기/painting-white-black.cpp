@@ -24,7 +24,6 @@ int main() {
         cin >> x[i] >> dir[i];
 
     int spot = 100000;
-    for (int i = 0; i < 200000; i++) block[i] = Blocks(0, 0, ' ');
 
     for (int i = 0; i < n; i++) {
         if (dir[i] == 'R') {

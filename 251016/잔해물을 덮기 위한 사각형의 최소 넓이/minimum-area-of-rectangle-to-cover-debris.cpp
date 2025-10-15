@@ -19,7 +19,8 @@ int main() {
                 square[i][j]=0;
             }
     }
-    int ylast,ystart,xlast,xstart;
+    int xstart = 2000, ystart = 2000;
+    int xlast = 0, ylast = 0;
     for(int i=x1[0]+1000;i<x2[0]+1000;i++){
         for(int j=y1[0]+1000;j<y2[0]+1000;j++){
              if(square[i][j]==1) {ylast=j;}

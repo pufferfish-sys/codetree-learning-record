@@ -1,51 +1,56 @@
 #include <iostream>
-
 using namespace std;
 
-#define MAX_K 100000
-
 int n;
-int a[2 * MAX_K + 1];
-int cnt_b[2 * MAX_K + 1];
-int cnt_w[2 * MAX_K + 1];
-int b, w, g;
+int x[1000];
+char dir[1000];
+
+class Blocks {
+public:
+    int w_cnt, b_cnt;
+    char c;
+    Blocks() {}
+    Blocks(int w_cnt, int b_cnt, char c) {
+        this->w_cnt = w_cnt;
+        this->b_cnt = b_cnt;
+        this->c = c;
+    }
+};
+Blocks block[100000];
 
 int main() {
-    // 변수 입력
     cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> x[i] >> dir[i];
 
-    int cur = MAX_K;
+    int spot = 50000;
+    for (int i = 0; i < 100000; i++) block[i] = Blocks(0, 0, ' ');
 
-    for(int i = 1; i <= n; i++) {
-        int x;
-        char c;
-        cin >> x >> c;
-        if(c == 'L') {
-            // x칸 왼쪽으로 칠합니다.
-            while(x--) {
-                a[cur] = 1;
-                cnt_w[cur]++;
-                if(x) cur--;
+    for (int i = 0; i < n; i++) {
+        if (dir[i] == 'R') {
+            for (int j = spot; j < spot + x[i]; j++) {
+                block[j].b_cnt++;
+                if (block[j].w_cnt >= 2 && block[j].b_cnt >= 2) block[j].c = 'G';
+                else block[j].c = 'B';
             }
-        }
-        else {
-            // x칸 오른쪽으로 칠합니다.
-            while(x--) {
-                a[cur] = 2;
-                cnt_b[cur]++;
-                if(x) cur++;
+            spot += x[i] - 1;
+        } else { // L
+            for (int j = spot; j > spot - x[i]; j--) {
+                block[j].w_cnt++;
+                if (block[j].w_cnt >= 2 && block[j].b_cnt >= 2) block[j].c = 'G';
+                else block[j].c = 'W';
             }
+            spot -= x[i] - 1;
         }
     }
 
-    for(int i = 0; i <= 2 * MAX_K; i++) {
-        // 검은색과 흰색으로 두 번 이상 칠해진 타일은 회색입니다.
-        if(cnt_b[i] >= 2 && cnt_w[i] >= 2) g++;
-        // 그렇지 않으면 현재 칠해진 색깔이 곧 타일의 색깔입니다.
-        else if(a[i] == 1) w++;
-        else if(a[i] == 2) b++;
+    int white = 0, black = 0, gray = 0;
+    for (int i = 0; i < 100000; i++) {
+        if (block[i].c == 'W') white++;
+        else if (block[i].c == 'B') black++;
+        else if (block[i].c == 'G') gray++;
     }
 
-    cout << w << " " << b << " " << g;
+    cout << white << " " << black << " " << gray;
     return 0;
 }

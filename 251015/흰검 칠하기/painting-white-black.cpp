@@ -23,8 +23,8 @@ int main() {
     for (int i = 0; i < n; i++)
         cin >> x[i] >> dir[i];
 
-    int spot = 50000;
-    for (int i = 0; i < 100000; i++) block[i] = Blocks(0, 0, ' ');
+    int spot = 100000;
+    for (int i = 0; i < 200000; i++) block[i] = Blocks(0, 0, ' ');
 
     for (int i = 0; i < n; i++) {
         if (dir[i] == 'R') {
@@ -45,7 +45,7 @@ int main() {
     }
 
     int white = 0, black = 0, gray = 0;
-    for (int i = 0; i < 100000; i++) {
+    for (int i = 0; i < 200000; i++) {
         if (block[i].c == 'W') white++;
         else if (block[i].c == 'B') black++;
         else if (block[i].c == 'G') gray++;

@@ -30,15 +30,13 @@ int main() {
         if (dir[i] == 'R') {
             for (int j = spot; j < spot + x[i]; j++) {
                 block[j].b_cnt++;
-                if (block[j].w_cnt >= 2 && block[j].b_cnt >= 2) block[j].c = 'G';
-                else block[j].c = 'B';
+                block[j].c = 'B';
             }
             spot += x[i] - 1;
         } else { // L
             for (int j = spot; j > spot - x[i]; j--) {
                 block[j].w_cnt++;
-                if (block[j].w_cnt >= 2 && block[j].b_cnt >= 2) block[j].c = 'G';
-                else block[j].c = 'W';
+                block[j].c = 'W';
             }
             spot -= x[i] - 1;
         }
@@ -46,11 +44,10 @@ int main() {
 
     int white = 0, black = 0, gray = 0;
     for (int i = 0; i < 200000; i++) {
-        if (block[i].c == 'W') white++;
+        if (block[i].w_cnt >= 2 && block[i].b_cnt >= 2) gray++;
         else if (block[i].c == 'B') black++;
-        else if (block[i].c == 'G') gray++;
+        else if (block[i].c == 'W') white++;
     }
-
     cout << white << " " << black << " " << gray;
     return 0;
 }

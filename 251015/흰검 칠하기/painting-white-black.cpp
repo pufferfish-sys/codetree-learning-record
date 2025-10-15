@@ -16,7 +16,7 @@ public:
         this->c = c;
     }
 };
-Blocks block[100000];
+Blocks block[200000];
 
 int main() {
     cin >> n;

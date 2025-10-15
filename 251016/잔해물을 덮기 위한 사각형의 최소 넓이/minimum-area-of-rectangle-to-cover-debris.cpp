@@ -24,10 +24,11 @@ int main() {
     }
 
     // 남은 1들의 최소/최대 좌표 찾기
-    int xmin = 2000, xmax = -1, ymin = 2000, ymax = -1;
-    for (int i = 0; i < 2000; i++) {
-        for (int j = 0; j < 2000; j++) {
+    int xmin = 2000, xmax = -1, ymin = 2000, ymax = -1,flag=0;
+    for (int i = x1[0] + 1000; i < x2[0] + 1000; i++) {
+        for (int j = y1[0] + 1000; j < y2[0] + 1000; j++) {
             if (square[i][j] == 1) {
+                flag=1;
                 if (i < xmin) xmin = i;
                 if (i > xmax) xmax = i;
                 if (j < ymin) ymin = j;
@@ -37,7 +38,7 @@ int main() {
     }
 
     int area = 0;
-    if (xmax == -1) area = 0; // 남은 게 없을 때
+    if (!flag) area = 0;
     else area = (xmax - xmin + 1) * (ymax - ymin + 1);
 
     cout << area;

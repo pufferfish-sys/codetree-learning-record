@@ -10,7 +10,7 @@ int main() {
     for (int i = 0; i < M; i++) {
         cin >> student[i];
     }
-    for(int i=0;i<N;i++){
+    for(int i=0;i<M;i++){
         if(student[i]>=K) {cout<<i+1; return 0;}
     }
     cout << -1;

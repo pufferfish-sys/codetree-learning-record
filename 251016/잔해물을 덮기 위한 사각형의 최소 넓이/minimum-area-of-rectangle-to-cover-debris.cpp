@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int x1[2], y1[2];
@@ -29,15 +30,15 @@ int main() {
         for (int j = y1[0] + 1000; j < y2[0] + 1000; j++) {
             if (square[i][j] == 1) {
                 flag=1;
-                if (i < xmin) xmin = i;
-                if (i > xmax) xmax = i;
-                if (j < ymin) ymin = j;
-                if (j > ymax) ymax = j;
+                xmin=min(xmin,i);
+                xmax = max(xmax,i);
+                ymin=min(ymin,j);
+                ymax = max(ymax,j);
             }
         }
     }
 
-    int area = 0;
+    int area;
     if (!flag) area = 0;
     else area = (xmax - xmin + 1) * (ymax - ymin + 1);
 

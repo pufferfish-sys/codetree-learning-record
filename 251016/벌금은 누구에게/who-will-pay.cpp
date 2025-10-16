@@ -1,21 +1,22 @@
 #include <iostream>
-
 using namespace std;
 
-int N, M, K;
-int student[10000]={0,};
 int main() {
+    int N, M, K;
     cin >> N >> M >> K;
-    int arr[101]={0,};
-    for (int i = 0; i < M; i++) {
-        cin >> student[i];
-        arr[student[i]]++;
-    }
-    int ans = -1;
-    for(int i=1; i<=N;i++){
-        if(arr[i]>=K) {ans=i;break;};
-    }
-    cout << ans;
 
+    int count[10001] = {0}; // 학생 번호 최대 10000까지 대응
+
+    int ans = -1;
+    for (int i = 0; i < M; i++) {
+        int s;
+        cin >> s;
+        count[s]++;
+        if (count[s] >= K && ans == -1) {
+            ans = s; // 최초로 K번 이상 된 학생 저장
+        }
+    }
+
+    cout << ans << endl;
     return 0;
 }

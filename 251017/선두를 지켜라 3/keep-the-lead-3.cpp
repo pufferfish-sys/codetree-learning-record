@@ -26,13 +26,17 @@ int main() {
     int cnt=0,flag=0;
     int time3 = min(time,time2);
     for(int i=0;i<time3;i++){
-        if(a[i]>=b[i]&&flag!=1){
+        if(a[i]>b[i]&&flag!=1){
             flag=1;
             cnt++;
         }
-        else if(b[i]>=a[i]&&flag!=2){
+        else if(b[i]>a[i]&&flag!=2){
             cnt++;
             flag=2;
+        }
+        else if(b[i]==a[i]&&flag!=3){
+            cnt++;
+            flag=3;
         }
     }
     cout << cnt-1;

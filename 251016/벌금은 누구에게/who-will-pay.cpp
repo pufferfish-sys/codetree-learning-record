@@ -7,14 +7,13 @@ int student[10000];
 
 int main() {
     cin >> N >> M >> K;
-    int bul=-1;
     for (int i = 0; i < M; i++) {
         cin >> student[i];
     }
     for(int i=0;i<N;i++){
-        if(student[i]>=K) {bul=i; break;}
+        if(student[i]>=K) {cout<<i+1; return 0;}
     }
-    cout << bul+1;
+    cout << -1;
 
     return 0;
 }

@@ -3,7 +3,7 @@
 using namespace std;
 
 int N, M, K;
-int student[10000];
+int student[10000]={0,};
 int main() {
     cin >> N >> M >> K;
     int arr[101]={0,};

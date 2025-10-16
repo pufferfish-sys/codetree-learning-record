@@ -32,12 +32,14 @@ int main() {
         }
     }
     
-    int cnt = 0;
     int ti = max(time, time2);
-    for(int i=1;i<=ti;i++){
-        if(a[i]==b[i] && a[i-1]!=b[i-1]){
-            cnt++;
-        }
+    for(int i=time;i<ti;i++) a[i] = aspot;
+    for(int i=time2;i<ti;i++) b[i] = bspot;
+    
+    // 겹치는 순간 카운트
+    int cnt = 0;
+    for(int i=1;i<ti;i++){ 
+        if(a[i]==b[i] && a[i-1]!=b[i-1]) cnt++;
     }
     
     cout << cnt;

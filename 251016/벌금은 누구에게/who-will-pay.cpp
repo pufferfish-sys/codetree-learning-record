@@ -6,7 +6,7 @@ int N, M, K;
 int student[10000];
 int main() {
     cin >> N >> M >> K;
-    int arr[100]={0,};
+    int arr[101]={0,};
     for (int i = 0; i < M; i++) {
         cin >> student[i];
         arr[student[i]]++;

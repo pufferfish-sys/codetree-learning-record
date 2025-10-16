@@ -32,15 +32,14 @@ int main() {
             b[time2++] = posB;
         }
     }
-
+    int ans=-1;
     int maxt = max(time, time2);
     for (int i = 0; i < maxt; i++) {
     if (a[i] == b[i]) {
-        cout << i + 1;
-        return 0;
+        ans = i + 1;
+        break;
     }
 }
-
-    cout << -1; 
+    cout << ans; 
     return 0;
 }

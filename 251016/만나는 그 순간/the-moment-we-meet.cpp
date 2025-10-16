@@ -33,12 +33,13 @@ int main() {
         }
     }
 
-    for (int i = 0; i < 1000; i++) {
-        if (a[i] == b[i]) {
-            cout << i + 1;
-            return 0;
-        }
+    int maxt = max(time, time2);
+    for (int i = 0; i < maxt; i++) {
+    if (a[i] == b[i]) {
+        cout << i + 1;
+        return 0;
     }
+}
 
     cout << -1; 
     return 0;

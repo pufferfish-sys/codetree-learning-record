@@ -8,7 +8,7 @@ int grid[100][100]={0,};
 int dx[4] = {0,1,0,-1},dy[4] ={1,0,-1,0};
 
 bool InRange(int x, int y){
-        return (0 <= x && x < N && 0 <= y && y < N);
+        return (1 <= x && x <= N && 1 <= y && y <= N);
 }
 
 int main() {
@@ -17,7 +17,7 @@ int main() {
         cin >> r[i] >> c[i];
     }
     for(int j=0;j<M;j++){
-        int cnt=0;
+    int cnt=0;
     grid[r[j]][c[j]]=1;
     for(int dir_num=0;dir_num <4; dir_num++){
                 int nx = r[j]+dx[dir_num],ny = c[j]+dy[dir_num];

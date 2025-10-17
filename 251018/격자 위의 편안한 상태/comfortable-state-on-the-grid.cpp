@@ -4,7 +4,7 @@ using namespace std;
 
 int N, M;
 int r[10000], c[10000];
-int grid[100][100]={0,};
+int grid[101][101]={0,};
 int dx[4] = {0,1,0,-1},dy[4] ={1,0,-1,0};
 
 bool InRange(int x, int y){

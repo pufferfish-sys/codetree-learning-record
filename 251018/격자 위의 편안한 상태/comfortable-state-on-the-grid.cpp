@@ -8,7 +8,7 @@ int grid[100][100]={0,};
 int dx[4] = {0,1,0,-1},dy[4] ={1,0,-1,0};
 
 bool InRange(int x, int y){
-        return (0<x &&x<=N && 0<y && y <=N);
+        return (0 < x && x <= N && 0 < y && y <= M);
 }
 
 int main() {

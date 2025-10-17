@@ -8,7 +8,7 @@ int dx[4] = {-1, 1, 0, 0};
 int dy[4] = {0, 0, -1, 1};
 
 bool InRange(int x, int y) {
-    return (1 <= x && x <= N && 1 <= y && y <= M);
+    return (0 <= x && x <=N && 0 <= y && y <=N);
 }
 
 int main() {
@@ -27,8 +27,7 @@ int main() {
             if (InRange(nx, ny) && grid[nx][ny] == 1)
                 cnt++;
         }
-
-        if (cnt >= 3) cout << 1 << endl;
+        if (cnt == 3) cout << 1 << endl;
         else cout << 0 << endl;
     }
 

@@ -3,7 +3,7 @@
 using namespace std;
 
 int n;
-char grid[1001][1001];
+char grid[1000][1000];
 int k;
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, 1, 0, -1};
@@ -28,29 +28,24 @@ int main() {
     else if(k<=3*n) {num=0;s1=n-1;s2=3*n-k;}
     else {num=1;s1=4*n-k;s2=0;}
     int nx=s1,ny=s2;
-    while (true) {
-    if(!InRange(nx,ny)) break; // 먼저 범위 체크
-    if(grid[nx][ny]=='/'){
+    while(1){
+         if(grid[nx][ny]=='/'){
         if(num==0) num=1;
         else if(num==1) num=0;
         else if(num==2) num=3;
         else num=2;
     }
-    else { // '\'
+    else {
         if(num==0) num=3;
         else if(num==1) num=2;
         else if(num==2) num=1;
         else num=0; 
     }
-    nx += dx[num];
-    ny += dy[num];
-    cnt++;
-}
-
-
-    
+        nx+=dx[num];
+        ny+=dy[num];
+        cnt++;
+        if(!InRange(nx,ny))break;
+    }
     cout <<cnt;
-
-
     return 0;
 }

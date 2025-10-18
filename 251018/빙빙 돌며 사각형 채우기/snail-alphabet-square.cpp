@@ -3,7 +3,7 @@
 using namespace std;
 
 int n, m;
-char arr[100][100]={};
+char arr[100][100]={'\0'};
 int dx[4]={0,1,0,-1},dy[4]={1,0,-1,0};
 int dir_num;
 int x=0,y=0;

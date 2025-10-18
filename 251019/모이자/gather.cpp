@@ -10,7 +10,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> A[i];
     }
-    int mi=10000;
+    int mi=10000000;
     for(int i=0;i<n;i++){
         int sum=0;
         for(int j=0;j<n;j++){

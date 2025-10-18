@@ -3,7 +3,7 @@
 using namespace std;
 
 int n;
-char grid[1000][1000];
+char grid[1001][1001];
 int k;
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, 1, 0, -1};
@@ -28,22 +28,23 @@ int main() {
     else if(k<=3*n) {num=0;s1=n-1;s2=3*n-k;}
     else {num=1;s1=4*n-k;s2=0;}
     int nx=s1,ny=s2;
-    while(1){
-        if(grid[nx][ny]=='/'){
-            if(num==1||num==3)//동쪽이나 서쪽방향이라면 시계방향 증가 
-            num=(num+1)%4;
-            else num= (num-1+4)%4;
-        }
-        else{// '|'
-            if(num==0||num==2)//북쪽이나 남쪽방향이라면 시계방향 증가 
-            num=(num+1)%4;
-            else num= (num-1+4)%4;
-        }
-        nx+=dx[num];
-        ny+=dy[num];
-        cnt++;
-        if(!InRange(nx,ny))break;
+    while (true) {
+    if(!InRange(nx,ny)) break; // 먼저 범위 체크
+    if(grid[nx][ny]=='/'){
+        if(num==1||num==3) num=(num+1)%4;
+        else num=(num-1+4)%4;
     }
+    else { // '\'
+        if(num==0||num==2) num=(num+1)%4;
+        else num=(num-1+4)%4;
+    }
+    nx += dx[num];
+    ny += dy[num];
+    cnt++;
+}
+
+
+    
     cout <<cnt;
 
 

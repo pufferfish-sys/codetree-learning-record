@@ -15,11 +15,9 @@ int main() {
     arr[x][y]='A';
     for(int i=2;i<=n*m;i++){
         int nx = x+dx[dir_num],ny= y+dy[dir_num];
-        if(!InRange(nx,ny)||arr[nx][ny]!=0)
-            dir_num =(dir_num+1)%4;
-            x=x+dx[dir_num];y=y+dy[dir_num];
-            arr[x][y] = 'A'+(i%26)-1;
-            if(arr[x][y]>'Z') arr[x][y] ='A';
+        if(!InRange(nx,ny)||arr[nx][ny]!=0){dir_num =(dir_num+1)%4;}
+        x=x+dx[dir_num];y=y+dy[dir_num];
+        arr[x][y] = 'A' + ( (i-1) % 26 );
 
     }
     for(int i=0;i<n;i++){

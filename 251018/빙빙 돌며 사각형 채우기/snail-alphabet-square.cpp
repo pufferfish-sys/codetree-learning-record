@@ -18,7 +18,7 @@ int main() {
         if(!InRange(nx,ny)||arr[nx][ny]!=0)
             dir_num =(dir_num+1)%4;
             x=x+dx[dir_num];y=y+dy[dir_num];
-            arr[x][y] ='A'+i-1;
+            arr[x][y] = 'A'+(i%26)-1;
             if(arr[x][y]>'Z') arr[x][y] ='A';
 
     }

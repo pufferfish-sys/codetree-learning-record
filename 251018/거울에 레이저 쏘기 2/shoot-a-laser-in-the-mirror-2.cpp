@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+int n;
+char grid[1000][1000];
+int k;
+int dx[4] = {-1, 0, 1, 0};
+int dy[4] = {0, 1, 0, -1};
+// 0: 북, 1: 동, 2: 남, 3: 서
+int num;
+int cnt=1;
+bool InRange(int x, int y){
+        return (0 <= x && x < n && 0 <= y && y < n);
+}
+
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> grid[i][j];
+        }
+    }
+    cin >> k;
+    int s1,s2;
+    if(k<=n) {num=2;s1=0;s2=k-1;}
+    else if(k<=2*n) {num=3;s1=k-n-1;s2=n-1;}
+    else if(k<=3*n) {num=0;s1=n-1;s2=3*n-k;}
+    else {num=1;s1=4*n-k;s2=0;}
+    int nx=s1,ny=s2;
+    while(1){
+        if(grid[nx][ny]=='/'){
+            if(num==1||num==3)//동쪽이나 서쪽방향이라면 시계방향 증가 
+            num=(num+1)%4;
+            else num= (num-1+4)%4;
+        }
+        else{// '|'
+            if(num==0||num==2)//북쪽이나 남쪽방향이라면 시계방향 증가 
+            num=(num+1)%4;
+            else num= (num-1+4)%4;
+        }
+        nx+=dx[num];
+        ny+=dy[num];
+        cnt++;
+        if(!InRange(nx,ny))break;
+    }
+    cout <<cnt;
+
+
+    return 0;
+}

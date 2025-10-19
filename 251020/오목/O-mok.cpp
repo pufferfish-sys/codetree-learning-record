@@ -8,7 +8,7 @@ int main() {
     for (int i = 0; i < 19; i++)
         for (int j = 0; j < 19; j++) cin >> board[i][j];
 
-    for(int i=0; i<15;i++){
+    for(int i=0; i<19;i++){
         for(int j=0;j<15;j++){
             if(board[i][j]==board[i][j+1]&&
             board[i][j]==board[i][j+2]&&
@@ -22,7 +22,7 @@ int main() {
         }
     }
     for(int i=0; i<15;i++){
-        for(int j=0;j<15;j++){
+        for(int j=0;j<19;j++){
             if(board[j][i]==board[j][i+1]
             &&board[j][i]==board[j][i+2]
             &&board[j][i]==board[j][i+3]
@@ -34,6 +34,44 @@ int main() {
             }
         }
     }
-
+    for(int i=0; i<15;i++){
+        for(int j=0;j<15;j++){
+            if(board[i][j]==board[i+1][j+1]&&
+            board[i][j]==board[i+2][j+2]&&
+            board[i][j]==board[i+3][j+3]&&
+            board[i][j]==board[i+4][j+4]&&
+            (board[i][j]==1||board[i][j]==2)){
+                cout<<board[i][j]<<endl;
+                cout<<i+3<<" "<<j+3<<endl;
+                return 0; 
+            }
+        }
+    }
+    for(int i=0; i<15;i++){
+        for(int j=0;j<15;j++){
+            if(board[i][j]==board[i+1][j+1]&&
+            board[i][j]==board[i+2][j+2]&&
+            board[i][j]==board[i+3][j+3]&&
+            board[i][j]==board[i+4][j+4]&&
+            (board[i][j]==1||board[i][j]==2)){
+                cout<<board[i][j]<<endl;
+                cout<<i+3<<" "<<j+3<<endl;
+                return 0; 
+            }
+        }
+    }
+    for(int i=18;i>=4;i--){
+        for(int j=18;j>=4;j--){
+            if(board[i][j]==board[i-1][j-1]&&
+            board[i][j]==board[i-2][j-2]&&
+            board[i][j]==board[i-3][j-3]&&
+            board[i][j]==board[i-4][j-4]&&
+            (board[i][j]==1||board[i][j]==2)){
+                cout<<board[i][j]<<endl;
+                cout<<i-3<<" "<<j-3<<endl;
+                return 0; 
+            }
+        }
+    }
     return 0;
 }

@@ -54,7 +54,7 @@ int main() {
             if (stone && stone == board[i-1][j+1] && stone == board[i-2][j+2] &&
                 stone == board[i-3][j+3] && stone == board[i-4][j+4]) {
                 cout << stone << '\n';
-                cout << i - 2 << ' ' << j + 3 << '\n'; // 중앙
+                cout << i - 1 << ' ' << j + 3 << '\n'; // 중앙
                 return 0;
             }
         }

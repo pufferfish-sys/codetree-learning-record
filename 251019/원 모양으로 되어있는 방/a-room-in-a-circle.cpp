@@ -15,7 +15,6 @@ int main() {
     for(int i =0;i<n;i++){
         int num=0;
         for(int j=0;j<n;j++){
-            int start=i;
             num += a[(i+j)%n]*j;
         }
         mi = min(mi,num);

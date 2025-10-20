@@ -20,7 +20,7 @@ int main() {
                 for(int k=0;k<N;k++){
                     for(int l=0;l<N-2;l++){
                     int cnt2=0;
-                    if(k == x1 && !(l + 2 < y1 || l > y1 + 2)) continue;
+                    if(k == x1 &&abs(j-l)<=2) continue;
                     if(!range(k,l)) continue;
                     cnt2 += arr[k][l] + arr[k][l+1] + arr[k][l+2];
                     ma = max(cnt2+cnt,ma);

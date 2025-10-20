@@ -12,7 +12,10 @@ int main() {
         cin >> arr[i];
     }
     for (int i = 0; i < n-k+1; i++){
-        int sum = arr[i]+arr[i+1]+arr[i+2];
+        int sum =0; 
+        for(int j=i;j<i+k;j++) {
+            sum+=arr[j];
+        }
         ma=max(ma,sum);
     }
     cout << ma;

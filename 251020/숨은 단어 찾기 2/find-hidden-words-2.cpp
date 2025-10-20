@@ -28,9 +28,9 @@ int main() {
                     int x1 = x+dx[k];
                     int y1 = y+dy[k];
                     if(!range(x1,y1)) break;
-                    x= x+dx[k];
-                    y= y+dy[k];
-                    if(arr[x][y]!='E') break;
+                    if(arr[x1][y1]!='E') break;
+                    x= x1;
+                    y= y1;
                     cnt++;
                     if(cnt==3) {ans++; break;} 
                 }
@@ -39,7 +39,7 @@ int main() {
         }
     }
     cout << ans;
-    // Please write your code here.
+    
 
     return 0;
 }

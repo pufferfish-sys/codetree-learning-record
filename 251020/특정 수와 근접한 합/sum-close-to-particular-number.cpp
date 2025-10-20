@@ -12,15 +12,18 @@ int main() {
         cin >> arr[i];
     }
 
-    for(int i=0;i<N-1;i++){ 
-        for(int j=i+1;j<N;j++){
-            int sum =0;
-            for(int k=0;k<N;k++){
-                if(!(k==i||k==j))sum+=arr[k];}
-                mi = min(abs(S-sum),mi);
-        }
+   int total = 0;
+    for(int i=0;i<N;i++) total += arr[i];
 
+    for(int i=0;i<N-1;i++){
+        for(int j=i+1;j<N;j++){
+            int sum = total - arr[i] - arr[j];
+            mi = min(mi, abs(S - sum));
         }
-        cout <<mi;
+    }
+
+
+        
+    cout <<mi;
     return 0;
 }

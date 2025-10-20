@@ -9,18 +9,17 @@ int ans=0;
 int N, M;
 string arr[50];
 bool range(int x,int y){
-    return x>=0&&x<N&&y>=0&&y<=M;
+    return x>=0&&x<N&&y>=0&&y<M;
 }
 int main() {
     cin >> N >> M;
     for (int i = 0; i < N; i++) {
-        for(int j=0; j<M; j++)cin >> arr[i][j];
+        cin >> arr[i];
     } 
 
     for(int i=0;i<N;i++){
         for(int j=0;j<M;j++){
             if(arr[i][j]!='L') continue;
-            
             for(int k=0;k<8;k++){
                 int cnt =1;
                 int x = i;

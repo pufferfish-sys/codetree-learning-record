@@ -1,65 +1,43 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
+int arr[19][19];
 
-int board[19][19];
+int dx[8] = {1, 1, 1, -1, -1, -1, 0, 0};
+int dy[8] = {-1, 0, 1, -1, 0, 1, -1, 1};
 
+int InRange(int x, int y) {
+    return 0 <= x && x < 19 && 0 <= y && y < 19;
+}
 int main() {
-    for (int i = 0; i < 19; i++)
-        for (int j = 0; j < 19; j++)
-            cin >> board[i][j];
+    for(int i = 0; i < 19; i++)
+        for(int j = 0; j < 19; j++)
+            cin >> arr[i][j];
 
-    // 1️⃣ 가로 검사
-    for (int i = 0; i < 19; i++) {
-        for (int j = 0; j < 15; j++) {
-            int stone = board[i][j];
-            if (stone && stone == board[i][j+1] && stone == board[i][j+2] &&
-                stone == board[i][j+3] && stone == board[i][j+4]) {
-                cout << stone << '\n';
-                cout << i + 1 << ' ' << j + 3 << '\n'; // 중앙
-                return 0;
+    for(int i=0;i<19;i++){
+        for(int j=0;j<19;j++){
+            if(arr[i][j]==0) continue;
+            for(int k=0;k<8;k++){
+                int cnt =1;
+                int x = i;
+                int y = j;
+                while(1){
+                    int x1 = x+dx[k];
+                    int y1 = y+dy[k];
+                    if(!InRange(x1,y1)) break;
+                    if(arr[x1][y1]!=arr[i][j]) break;
+                    x= x1;
+                    y= y1;
+                    cnt++;
+                    if(cnt==5) {cout << arr[i][j] << endl;
+					cout << i + 2 * dx[k] + 1 << " " << j + 2 * dy[k] + 1;
+					return 0;} 
+                }
             }
+
         }
     }
 
-    // 2️⃣ 세로 검사
-    for (int i = 0; i < 15; i++) {
-        for (int j = 0; j < 19; j++) {
-            int stone = board[i][j];
-            if (stone && stone == board[i+1][j] && stone == board[i+2][j] &&
-                stone == board[i+3][j] && stone == board[i+4][j]) {
-                cout << stone << '\n';
-                cout << i + 3 << ' ' << j + 1 << '\n'; // 중앙
-                return 0;
-            }
-        }
-    }
-
-    // 3️⃣ 대각선 ↘ (오른쪽 아래)
-    for (int i = 0; i < 15; i++) {
-        for (int j = 0; j < 15; j++) {
-            int stone = board[i][j];
-            if (stone && stone == board[i+1][j+1] && stone == board[i+2][j+2] &&
-                stone == board[i+3][j+3] && stone == board[i+4][j+4]) {
-                cout << stone << '\n';
-                cout << i + 3 << ' ' << j + 3 << '\n'; // 중앙
-                return 0;
-            }
-        }
-    }
-
-    // 4️⃣ 대각선 ↗ (오른쪽 위)
-    for (int i = 4; i < 19; i++) {
-        for (int j = 0; j < 15; j++) {
-            int stone = board[i][j];
-            if (stone && stone == board[i-1][j+1] && stone == board[i-2][j+2] &&
-                stone == board[i-3][j+3] && stone == board[i-4][j+4]) {
-                cout << stone << '\n';
-                cout << i - 1 << ' ' << j + 3 << '\n'; // 중앙
-                return 0;
-            }
-        }
-    }
-
-    cout << 0;
     return 0;
 }

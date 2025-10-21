@@ -9,8 +9,7 @@ int a2, b2, c2;
 
 // 원형 다이얼 거리 계산
 int circular_dist(int x, int y, int N) {
-    int d = abs(x - y);
-    return min(d, N - d);
+    return min(abs(x - y), N - abs(x - y));
 }
 
 int main() {

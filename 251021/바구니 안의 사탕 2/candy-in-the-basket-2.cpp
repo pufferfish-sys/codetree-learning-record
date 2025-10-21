@@ -12,7 +12,7 @@ int main() {
 
     for (int i = 0; i < N; i++) {
         cin >> candy[i] >> pos[i];
-        loc[pos[i]] = candy[i];
+        loc[pos[i]] += candy[i];
     }
 
     for (int i = 0; i < 100; i++) {

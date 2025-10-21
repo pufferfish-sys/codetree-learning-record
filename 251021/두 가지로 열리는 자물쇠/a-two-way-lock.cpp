@@ -8,7 +8,7 @@ int a1, b1, c1;
 int a2, b2, c2;
 
 // 원형 다이얼 거리 계산
-int circular_dist(int x, int y, int N) {
+int calc(int x, int y) {
     return min(abs(x - y), N - abs(x - y));
 }
 
@@ -22,12 +22,12 @@ int main() {
     for (int i = 1; i <= N; i++) {
         for (int j = 1; j <= N; j++) {
             for (int k = 1; k <= N; k++) {
-                if ((circular_dist(a1, i, N) <= 2 &&
-                     circular_dist(b1, j, N) <= 2 &&
-                     circular_dist(c1, k, N) <= 2) ||
-                    (circular_dist(a2, i, N) <= 2 &&
-                     circular_dist(b2, j, N) <= 2 &&
-                     circular_dist(c2, k, N) <= 2)) cnt++;
+                if ((calc(a1, i) <= 2 &&
+                     calc(b1, j) <= 2 &&
+                     calc(c1, k) <= 2) ||
+                    (calc(a2, i) <= 2 &&
+                     calc(b2, j) <= 2 &&
+                     calc(c2, k) <= 2)) cnt++;
             }
         }
     }

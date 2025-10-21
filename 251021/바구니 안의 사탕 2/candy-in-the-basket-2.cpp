@@ -1,32 +1,35 @@
 #include <iostream>
 #include <algorithm>
+
+#define MAX_NUM 100
+
 using namespace std;
 
-int N, K;
-int candy[1001], pos[1001];
-int loc[1001];  // 위치별 캔디 합
+int n, k;
+int arr[101];
 
 int main() {
-    cin >> N >> K;
-    int ma = 0;
-    int maxPos = 0;
-
     // 입력
-    for (int i = 0; i < N; i++) {
-        cin >> candy[i] >> pos[i];
-        loc[pos[i]] += candy[i];  // 같은 위치 중복 누적
-        maxPos = max(maxPos, pos[i]);
+    cin >> n >> k;
+    for(int i = 0; i < n; i++) {
+        int x, a;
+        cin >> a >> x;
+        
+        arr[x] += a;
     }
-
-    // 각 위치 i를 중심으로 K 범위 내 합 계산
-    for (int i = 0; i <= maxPos; i++) {
-        int cnt = 0;
-        for (int j = max(0, i - K); j <= min(maxPos, i + K); j++) {
-            cnt += loc[j];
-        }
-        ma = max(ma, cnt);
+    
+    // 모든 구간의 시작점을 잡아봅니다.
+    int max_sum = 0;
+    for(int i = 0; i <= 100; i++) {
+        // 해당 구간 내 원소의 합을 구합니다.
+        int sum = 0;
+        for(int j = i - k; j <= i + k; j++)
+            if(j >= 0 && j <= 100)
+                sum += arr[j];
+        max_sum = max(max_sum, sum);
     }
-
-    cout << ma;
+                        
+    cout << max_sum;
     return 0;
 }
+

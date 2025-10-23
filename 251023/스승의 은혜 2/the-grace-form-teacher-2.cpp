@@ -22,7 +22,7 @@ int main() {
             B+=P[i];
             P[i]/=2;
             B-=P[i];
-            if(B>=0) {cnt++;flag=0;break;}
+            if(B>=0) {cnt++;flag=0;}
             else {flag=0;}
         }
         if(flag) cnt++;

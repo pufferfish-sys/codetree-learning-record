@@ -20,13 +20,11 @@ int main() {
             B+=P[i];
             P[i]/=2;
             B-=P[i];
-            if(B<=0) {cout << cnt; return 0;}
+            if(B>=0) {cnt++;cout << cnt; return 0;}
+            else {cout << cnt; return 0;}
         }
         cnt++;
     }
     cout << 0;
-
-   
-
     return 0;
 }

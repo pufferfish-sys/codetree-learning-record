@@ -14,21 +14,20 @@ int main() {
         sum[i] = P[i] + S[i];
     }
     sort(sum,sum+N);
-    int cnt=0,flag=1;
+    int cnt=0;
 
     for(int i=0;i<N;i++){
-        if(!flag) break; 
-        B-=sum[i];
-        if(B<=0){
+        B-=sum[i]; 
+        if (B >= 0) cnt++;
+        else if(B<=0){
             int maxp=0;
-            for(int j=0;j<=i;j++){
-                maxp=max(maxp,P[i]);
+            for(int j=0;j<=i+1;j++){
+                maxp=max(maxp,P[j]);
             }
             B+=maxp/2;
-            if(B>=0) {cnt++;flag=0;}
-            else {flag=0;}
+            if(B>=0) {cnt++;break;}
+            else {break;}
         }
-        if(flag) cnt++;
     }
     
     cout << cnt;

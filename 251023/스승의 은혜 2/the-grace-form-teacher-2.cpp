@@ -13,16 +13,20 @@ int main() {
         cin >> P[i];
     }
     sort(P,P+N);
-    int cnt=0;
+    int cnt=0,flag=1;
+
     for(int i=0;i<N;i++){
+        if(!flag) break; 
         B-=P[i];
         if(B<=0){
             B+=P[i];
             P[i]/=2;
             B-=P[i];
-            if(B>=0) {cnt++;cout << cnt; return 0;}
-            else {cout << cnt; return 0;}
+            if(B>=0) {cnt++;flag=0;break;}
+            else {flag=0;}
         }
-        cnt++;
+        if(flag) cnt++;
     }
+    
+    cout << cnt;
 }

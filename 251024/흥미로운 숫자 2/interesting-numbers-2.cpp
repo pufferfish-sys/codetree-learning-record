@@ -4,15 +4,13 @@ using namespace std;
 
 int X, Y;
 
-
-
 int main() {
     cin >> X >> Y;
     int fun = 0;
     for(int i=X;i<=Y;i++){
-        int arr[7]={-1,};
+        int arr[7];
         int d = i,arrnum=0;
-        while(d>0){
+        while(d){
             int num = d%10;
             arr[arrnum++]=num;
             d /=10;

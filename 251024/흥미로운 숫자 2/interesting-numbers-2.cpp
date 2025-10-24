@@ -11,13 +11,11 @@ int main() {
     int fun = 0;
     for(int i=X;i<=Y;i++){
         int arr[7]={-1,};
-        int d = i;
-        int arrnum=0;
+        int d = i,arrnum=0;
         while(d>0){
             int num = d%10;
-            arr[arrnum]=num;
+            arr[arrnum++]=num;
             d /=10;
-            arrnum++;
         }
         sort(arr,arr+arrnum);
 

@@ -12,16 +12,18 @@ int main() {
     int max1 = 0;
     for (int i = 1; i <= 1000; i++) {
         int cnt = 0;
-        bool inBlock = false;
+        bool outside = false;
 
         for (int j = 0; j < n; j++) {
             if (h[j] > i) {
-                if (!inBlock) {
+                if (!outside) {
                     cnt++;         // 새로운 블록 시작
-                    inBlock = true;
+                    outside = true;
                 }
-            } else {
-                inBlock = false;   // 블록 끝
+                else continue;
+                } 
+            else {
+                outside = false;
             }
         }
         max1 = max(max1, cnt);

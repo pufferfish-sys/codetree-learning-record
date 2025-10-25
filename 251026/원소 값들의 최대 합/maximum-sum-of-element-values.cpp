@@ -11,7 +11,7 @@ int main() {
         cin >> arr[i];
     }
     int max1=0;
-    for(int j=1;j<=100;j++){
+    for(int j=1;j<=n;j++){
         int start=j,sum=0;
     for(int i=0;i<m;i++){
         sum+=arr[start];

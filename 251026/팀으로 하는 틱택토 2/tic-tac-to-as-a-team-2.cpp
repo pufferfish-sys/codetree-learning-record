@@ -22,7 +22,7 @@ int main() {
                     if (inp[k][l] == i + '0') cnt_i++;
                     if (inp[k][l] == j + '0') cnt_j++;
                 }
-                if (cnt_i + cnt_j >= 3&& cnt_i>0&&cnt_j>0) cnt++; // 두 숫자 모두 존재하면 팀 승리
+                if (cnt_i + cnt_j >= 3&& cnt_i>0&&cnt_j>0) {cnt++;break;} // 두 숫자 모두 존재하면 팀 승리
             }
 
             // 세로 검사
@@ -32,7 +32,7 @@ int main() {
                     if (inp[k][l] == i + '0') cnt_i++;
                     if (inp[k][l] == j + '0') cnt_j++;
                 }
-                if (cnt_i + cnt_j >= 3&& cnt_i>0&&cnt_j>0) cnt++;
+                if (cnt_i + cnt_j >= 3&& cnt_i>0&&cnt_j>0) {cnt++;break;}
             }
 
             // 대각선 검사 (왼쪽 위 → 오른쪽 아래)
@@ -41,7 +41,7 @@ int main() {
                 if (inp[d][d] == i + '0') cnt_i++;
                 if (inp[d][d] == j + '0') cnt_j++;
             }
-            if (cnt_i + cnt_j >= 3&& cnt_i>0&&cnt_j>0) cnt++;
+            if (cnt_i + cnt_j >= 3&& cnt_i>0&&cnt_j>0) {cnt++;break;}
 
             // 대각선 검사 (오른쪽 위 → 왼쪽 아래)
             cnt_i = 0; cnt_j = 0;
@@ -49,7 +49,7 @@ int main() {
                 if (inp[d][2 - d] == i + '0') cnt_i++;
                 if (inp[d][2 - d] == j + '0') cnt_j++;
             }
-            if (cnt_i + cnt_j >= 3&& cnt_i>0&&cnt_j>0) cnt++;
+            if (cnt_i + cnt_j >= 3&& cnt_i>0&&cnt_j>0) {cnt++;break;}
         }
     }
 

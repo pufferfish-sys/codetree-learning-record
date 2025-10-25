@@ -20,7 +20,7 @@ int main() {
                 if(x[k]<i&&y[k]<j) cnt1++;
                 else if(x[k]>i&&y[k]<j) cnt2++;
                 else if(x[k]<i&&y[k]>j) cnt3++;
-                else if(x[k]>i&&y[k]>j) cnt4++;
+                else cnt4++;
             }
             tempmax=max({cnt1,cnt2,cnt3,cnt4});
             ans= min(tempmax,ans);

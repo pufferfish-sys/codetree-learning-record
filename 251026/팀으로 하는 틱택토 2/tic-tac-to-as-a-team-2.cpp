@@ -14,7 +14,7 @@ int main() {
             bool win = false;
 
             // 가로
-            for (int k = 0; k < 3 && !win; k++) {
+            for (int k = 0; k < 3; k++) {
                 int cnt_i = 0, cnt_j = 0;
                 for (int l = 0; l < 3; l++) {
                     if (inp[k][l] == i + '0') cnt_i++;
@@ -24,7 +24,7 @@ int main() {
             }
 
             // 세로
-            for (int l = 0; l < 3 && !win; l++) {
+            for (int l = 0; l < 3; l++) {
                 int cnt_i = 0, cnt_j = 0;
                 for (int k = 0; k < 3; k++) {
                     if (inp[k][l] == i + '0') cnt_i++;
@@ -35,7 +35,7 @@ int main() {
 
             // 대각선 1
             int cnt_i = 0, cnt_j = 0;
-            for (int d = 0; d < 3 && !win; d++) {
+            for (int d = 0; d < 3; d++) {
                 if (inp[d][d] == i + '0') cnt_i++;
                 if (inp[d][d] == j + '0') cnt_j++;
             }
@@ -43,7 +43,7 @@ int main() {
 
             // 대각선 2
             cnt_i = 0; cnt_j = 0;
-            for (int d = 0; d < 3 && !win; d++) {
+            for (int d = 0; d < 3; d++) {
                 if (inp[d][2 - d] == i + '0') cnt_i++;
                 if (inp[d][2 - d] == j + '0') cnt_j++;
             }

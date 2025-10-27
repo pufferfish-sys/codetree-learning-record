@@ -19,13 +19,10 @@ int main() {
             int mindistance =101;
             int last = -1;
             for(int x=0;x<N;x++){
-                if(seat[x]=='1'){
-                    if(last!=-1){
-                        int distance = x - last;
-                        mindistance = min(mindistance,distance);
-                        last = x; 
-                    }
-                    else last = x;
+                for(int y=x+1;y<N;y++){
+                if(seat[x]=='1'&&seat[y]=='1'){
+                    mindistance = min(mindistance,y-x);
+                }
                 }
             
             }

@@ -19,7 +19,7 @@ int main() {
             int mindistance =101;
             int last = -1;
             for(int x=0;x<N;x++){
-                if(seat[x]='1'){
+                if(seat[x]=='1'){
                     if(last!=-1){
                         int distance = x - last;
                         mindistance = min(mindistance,distance);
@@ -29,10 +29,12 @@ int main() {
                 }
             
             }
+            ans = max(mindistance,ans);
             seat[j]='0';
             seat[i]='0';
 
-        }}
+        }
+        }
         }
     }
     cout << ans;

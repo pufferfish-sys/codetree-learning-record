@@ -22,7 +22,7 @@ int main() {
         for(int i=2;i<n;i++){
               arr[i] = adjacent[i-1]-arr[i-1];
               check[arr[i]]++;
-              if(arr[i]<1) {
+              if(arr[i]<1||arr[i]<=n) {
                 flag = false;
                 break;}   
         }

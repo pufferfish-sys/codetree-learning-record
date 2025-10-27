@@ -18,7 +18,7 @@ int main() {
         if(start>=a[j]&&start<=b[j]) {start*=2; continue;}
         else{flag = false; break;} 
     }
-    if(flag) ans=min(ans,i);
+    if(flag) {ans=min(ans,i);break;}
     }
     cout << ans;
     return 0;

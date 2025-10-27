@@ -1,42 +1,58 @@
 #include <iostream>
-#include <cmath>
+
+#define MAX_N 100
+#define MAX_A 1000000
+
 using namespace std;
 
+int n, k;
+int num[MAX_N];
+int bomb[MAX_A + 1];
+bool explode[MAX_N];
+
 int main() {
-    int N, K;
-    cin >> N >> K;
-
-    int num[100];       // 폭탄 숫자
-    int exploded[1000000] = {0};  // 폭발 횟수 기록 (숫자 범위 1~1000)
-    int visited[100];   // 중복 카운트 방지용
-
-    for (int i = 0; i < N; i++) {
+    // 입력
+    cin >> n >> k;
+    
+    for(int i = 0; i < n; i++)
         cin >> num[i];
-    }
 
-    for (int i = 0; i < N; i++) {
-        // visited 초기화
-        for (int v = 0; v < N; v++) visited[v] = 0;
+    int maxval = 1;
+    int maxidx = 0;
 
-        for (int j = 0; j < N; j++) {
-            if (i == j) continue;
-            if (num[i] == num[j] && abs(i - j) < K) {
-                if (visited[i] == 0) { exploded[num[i]]++; visited[i] = 1; }
-                if (visited[j] == 0) { exploded[num[j]]++; visited[j] = 1; }
+    // 모든 쌍에 대해서 터질 수 있는 폭탄을 찾고
+    // 터진 폭탄의 개수를 저장합니다.
+    for(int i = 0; i < n; i++)
+        for(int j = i + 1; j < n; j++) {
+            // 거리가 k를 초과하는 경우 넘어갑니다.
+            if(j - i > k)
+                break;
+
+            // 두 폭탄의 번호가 다를 경우 터지지 않습니다.
+            if(num[i] != num[j])
+                continue;
+
+            // 두 폭탄의 번호가 같을 경우 폭탄은 터집니다.
+            // 해당 폭탄이 이미 터진 폭탄인지 확인하고,
+            // 아직 터지지 않은 폭탄이라면 터진 폭탄의 개수를 갱신합니다.
+            if(explode[i] == false) {
+                bomb[num[i]]++;
+                explode[i] = true;
+            }
+
+            if(explode[j] == false) {
+                bomb[num[j]]++;
+                explode[j] = true;
             }
         }
-    }
-
-    // 가장 많이 폭발한 폭탄 찾기
-    int max_count = 0;
-    int result = 0;
-    for (int i = 1; i <= 1000000; i++) {
-        if (exploded[i] > max_count) {
-            max_count = exploded[i];
-            result = i;
+    
+    for(int i = 0; i <= MAX_A; i++)
+        if(maxval <= bomb[i]) {
+            maxval = bomb[i];
+            maxidx = i;
         }
-    }
-
-    cout << result << endl;
+    
+    cout << maxidx;
+    
     return 0;
 }

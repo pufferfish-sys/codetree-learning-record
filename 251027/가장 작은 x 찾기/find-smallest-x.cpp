@@ -11,14 +11,14 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> a[i] >> b[i];
     }
-    int ans = INT_MAX;
+    int ans;
     for(int i=1;i<=10000;i++){
         int start=i*2; bool flag = true;
     for(int j=0;j<n;j++){    
         if(start>=a[j]&&start<=b[j]) {start*=2; continue;}
         else{flag = false; break;} 
     }
-    if(flag) {ans=min(ans,i);break;}
+    if(flag) {ans=i;break;}
     }
     cout << ans;
     return 0;

@@ -13,13 +13,13 @@ int main() {
 
     for(int x=1;x<=1000;x++){
         int arr[1001];
-        int check[1000]={0,};
+        int check[1001]={0,};
         bool flag = true;
         arr[0]= x; 
         check[arr[0]]++; 
         for(int i=1;i<n;i++){
               arr[i] = adjacent[i-1]-arr[i-1];
-               if(arr[i] < 1 || arr[i] > n) { flag = false; break; }  
+                if(arr[i] < 1 || arr[i] > n) { flag = false; break; }  
               check[arr[i]]++;
         }
         for(int y=1;y<=n;y++){

@@ -1,44 +1,52 @@
 #include <iostream>
 #include <algorithm>
+
+#define MAX_A 10000
+#define MAX_N 100
+
 using namespace std;
 
-int N, M;
-int arr[1000];
-
-bool possible(int limit) {
-    int cnt = 1; // 구간 개수
-    int sum = 0;
-    for (int i = 0; i < N; i++) {
-        if (arr[i] > limit) return false; // limit보다 큰 단일 값은 불가능
-        if (sum + arr[i] > limit) {
-            cnt++;
-            sum = arr[i];
-        } else {
-            sum += arr[i];
-        }
-    }
-    return cnt <= M;
-}
+int n, m;
+int a[MAX_N];
 
 int main() {
-    cin >> N >> M;
-    for (int i = 0; i < N; i++) cin >> arr[i];
+    // 입력:
+    cin >> n >> m;
+    
+    for(int i = 0; i < n; i++)
+        cin >> a[i];
+    
+    // 잘 생각해 보면, 구간의 합의 최댓값을 결정한다면
+    // 구간을 몇 개로 나눠야 하는지 손쉽게 찾을 수 있습니다.
+    int ans = MAX_A;
+    for(int i = 1; i <= MAX_A; i++) {
+        // 구간의 합의 최댓값이 i일 때
 
-    int left = max(arr[0], arr[N-1]); // 최소 가능값
-    int right = 0;
-    for (int i = 0; i < N; i++) right += arr[i]; // 최대 가능값
-    int ans = right;
+        bool possible = true; // possible : 구간을 나눌 수 있으면 true
+        int section = 1; // section : 나뉘어져야 하는 구간의 개수
 
-    while (left <= right) {
-        int mid = (left + right) / 2;
-        if (possible(mid)) {
-            ans = mid;
-            right = mid - 1; // 더 작은 최대합이 가능한지 탐색
-        } else {
-            left = mid + 1;
+        int cnt = 0;
+        for(int j = 0; j < n; j++) {
+            // 숫자 하나가 i보다 크면 구간을 나눌 수 없습니다.
+            if(a[j] > i) {
+                possible = false;
+                break;
+            }
+            // j번째 숫자가 들어갔을 때 i보다 커지면
+            // j번째 숫자부터 다음 구간으로 만듭니다.
+            if(cnt + a[j] > i) {
+                cnt = 0;
+                section++;
+            }
+            // 이번 구간에 j번째 숫자를 집어넣습니다.
+            cnt += a[j];
+        }
+        if(possible && section <= m) {
+            ans = min(ans, i);
         }
     }
 
     cout << ans;
+
     return 0;
 }

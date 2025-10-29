@@ -10,15 +10,17 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> x1[i] >> x2[i];
     }
+
+    for(int i=0;i<n;i++){
     int min1 = 101;
     int max1 = 0;
-    for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
+            
             if(j==i) continue;
             min1=min(min1,x2[j]);
             max1=max(max1,x1[j]);
         }
-        if(min1<max1) {cout << "Yes"; return 0;} 
+        if(min1>=max1) {cout << "Yes"; return 0;} 
     }
     cout << "No";
 

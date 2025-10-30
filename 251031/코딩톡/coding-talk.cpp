@@ -27,8 +27,8 @@ int main() {
         int d = c[p-2]-'A';
         check[d]=1;
     }
-    
-    for(int i=0;i<m;i++){
+
+    for(int i=0;i<n;i++){
         char d = 'A'+i;
         if(check[i]!=1) cout << d << " "; 
     }

@@ -1,47 +1,35 @@
 #include <iostream>
-#include <climits>
+
+#define MAX_N 100
+
 using namespace std;
 
 int n;
-int a[100];
-int b[100];
-int c[100];
+
+int a[MAX_N], b[MAX_N];
+int ans;
 
 int main() {
+    // 입력
     cin >> n;
-
-    for (int i = 0; i < n; i++) {
+    for(int i = 0 ; i < n; i++)
         cin >> a[i];
-    }
-
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++)
         cin >> b[i];
-    }
-    for (int i = 0; i < n; i++) {
-        c[i] = a[i]-b[i];
-    }
-    int ans=0;
-
-    for(int i=0; i<n;i++){
-        int j = i+1;
-        while(j<n){
-            if(c[i]>0 && c[j]<0){
-                    if(c[j]+c[i]<=0){
-                        ans+=(j-i)*c[i];
-                        c[j]+=c[i];
-                        c[i]=0;
-                        break;
-                    }
-                    else if(c[j]+c[i]>0){
-                        c[i]+=c[j];
-                        ans+=(j-i)*abs(c[j]);
-                        c[j]=0;
-                    }
+  
+    // 입력으로 주어진 사람 수를 보고
+    // 최소 어느 만큼의 거리를 달려야 하는지 확인합니다.
+    for(int i = 0; i < n; i++) {
+        if(a[i] > b[i]) {
+            // 최소 a[i] - b[i]명의 사람들은 오른쪽으로 달려야 합니다.
+            int num = a[i] - b[i];
+            a[i] -= num;
+            a[i + 1] += num;
+            ans += num;
         }
-        j++;
-        
     }
-    }
+
     cout << ans;
+
     return 0;
 }

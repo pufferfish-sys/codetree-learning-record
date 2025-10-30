@@ -19,11 +19,9 @@ int main() {
     }
 
     if(u[p-1]==0){
-        for(int i=0;i<n;i++){
-            check[i]=1;
-        }
+        return 0;
     }
-    else if(u[p-1]==u[p-2]){
+    else{
         int temp=p;
         while(u[temp-1]==u[temp-2]){
         int d = c[temp-2]-'A';
@@ -37,6 +35,5 @@ int main() {
         if(check[i]!=1) cout << d << " "; 
     }
     
-
     return 0;
 }

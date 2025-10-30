@@ -23,7 +23,7 @@ int main() {
     }
     else{
         int temp=p;
-        while(u[temp-1]==u[temp-2]){
+        while(temp > 1 && u[temp-1]==u[temp-2]){
         int d = c[temp-2]-'A';
         check[d]=1;
         temp-=1;

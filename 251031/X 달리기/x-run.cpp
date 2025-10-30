@@ -11,12 +11,10 @@ int main() {
     int time=0;
     while(cnt<X){
         cnt += speed;
-        int sum=0;
-        for(int i=1;i<=speed+1;i++){
-        sum+=i;
-        }
-        if(sum<=X-cnt) speed++;
-        else if(sum-speed-1<=X-cnt){}
+
+        int remain = X-cnt;
+        if((speed+1)*(speed+2)/2<=remain) speed++;
+        else if((speed+1)*(speed)/2<=remain){}
         else speed--;
 
         time++;

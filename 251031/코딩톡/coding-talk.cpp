@@ -24,8 +24,12 @@ int main() {
         }
     }
     else if(u[p-1]==u[p-2]){
-        int d = c[p-2]-'A';
+        int temp=p;
+        while(u[temp-1]==u[temp-2]){
+        int d = c[temp-2]-'A';
         check[d]=1;
+        temp-=1;
+    }
     }
 
     for(int i=0;i<n;i++){

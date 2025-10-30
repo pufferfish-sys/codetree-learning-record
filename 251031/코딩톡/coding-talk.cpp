@@ -23,8 +23,11 @@ int main() {
             check[i]=1;
         }
     }
-
-
+    else if(u[p-1]==u[p-2]){
+        int d = c[p-2]-'A';
+        check[d]=1;
+    }
+    
     for(int i=0;i<m;i++){
         char d = 'A'+i;
         if(check[i]!=1) cout << d << " "; 

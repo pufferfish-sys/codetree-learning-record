@@ -18,15 +18,14 @@ int main() {
     int count = 0;
 
     for (int i = 0; i < N; i++) {
-        int bird = pigeon[i];
-        int pos = position[i];
+        if (lastPos[ pigeon[i]] == -1) {
+            lastPos[ pigeon[i]] = position[i];
+        }
 
-        if (lastPos[bird] == -1) {
-            lastPos[bird] = pos;
-        } else {
-            if (lastPos[bird] != pos) {
+        else {
+            if (lastPos[ pigeon[i]] != position[i]) {
                 count++;
-                lastPos[bird] = pos;
+                lastPos[ pigeon[i]] = position[i];
             }
         }
     }

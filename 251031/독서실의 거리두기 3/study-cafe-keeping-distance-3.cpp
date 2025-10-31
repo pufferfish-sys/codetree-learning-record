@@ -1,34 +1,27 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 using namespace std;
 
-int N;
-string seats;
+int n;
+string s;
 
 int main() {
-    cin >> N;
-    cin >> seats;
+    cin >> n >> s;
 
-    int maxGap = 0;
-    int start = 0, end = 0;
+    int maxNew = 0;
+    for (int i = 0; i < n; i++) {
+        if (s[i] == '1') continue;
 
-    for(int i=0; i<N; i++){
-        if(seats[i] == '1'){
-            for(int j=i+1; j<N; j++){
-                if(seats[j] == '1'){
-                    int gap = j - i - 1;
-                    if(gap > maxGap){
-                        maxGap = gap;
-                        start = i;
-                        end = j;
-                    }
-                    break; 
-                }
-            }
-        }
+        int l = i - 1;
+        while (l >= 0 && s[l] == '0') l--;
+        int r = i + 1;
+        while (r < n && s[r] == '0') r++;
+
+        int dist = min(i - l, r - i);
+        maxNew = max(maxNew, dist);
     }
 
-    cout << (end - start - 1)/2 + 1 << endl;
-
+    cout << maxNew;
     return 0;
 }

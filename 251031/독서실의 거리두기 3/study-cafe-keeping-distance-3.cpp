@@ -12,7 +12,7 @@ int main() {
     int last = -1;
     int mindistance =1001;
     int start, end;
-    for(int i=0;i<N-1;i++){
+    for(int i=1;i<N-1;i++){
         if (seats[i]=='0') continue;
         int distance = 0;
         for(int j=i+1;j<N;j++){
@@ -24,7 +24,7 @@ int main() {
     }
     
 
-    cout << (end-start+1)/2; 
+    cout << (end-start)/2+1; 
     
 
     return 0;

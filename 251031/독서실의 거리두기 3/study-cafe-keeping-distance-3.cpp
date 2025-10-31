@@ -9,7 +9,6 @@ string seats;
 int main() {
     cin >> N;
     cin >> seats;
-    int last = -1;
     int mindistance =1001;
     int start, end;
     for(int i=1;i<N-1;i++){
@@ -24,7 +23,7 @@ int main() {
     }
     
 
-    cout << (end-start)/2+1; 
+    cout << (end-start-1)/2+1; 
     
 
     return 0;

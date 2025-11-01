@@ -18,7 +18,9 @@ int main() {
             cnt ++;
             j--;
             }
+            break;
         }
+        
     }
     }
     cout << cnt;

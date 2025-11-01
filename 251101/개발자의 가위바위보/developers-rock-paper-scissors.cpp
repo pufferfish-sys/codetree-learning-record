@@ -1,49 +1,35 @@
 #include <iostream>
-#include <algorithm>
-
-#define MAX_N 100
 
 using namespace std;
 
-int n;
-int a[MAX_N], b[MAX_N];
+int N;
+int a[100], b[100];
 
 int main() {
-    // 입력:
-    cin >> n;
+    cin >> N;
 
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < N; i++) {
         cin >> a[i] >> b[i];
+    }
+    int ans =0;
 
-    int max_win = 0;
-
-    // Case 1. 1이 2를 이기고, 2가 3을 이기고 3이 1을 이기는 경우
-    int win = 0;
-    for(int i = 0; i < n; i++) {
-        if(a[i] == 1 && b[i] == 2)
-            win++;
-        else if(a[i] == 2 && b[i] == 3)
-            win++;
-        else if(a[i] == 3 && b[i] == 1)
-            win++;
+    for(int x=1;x<=3;x++){// y를 이기는 경우 
+    for(int y=1;y<=3;y++){ // z를 이기는 경우
+    if(x == y) continue;
+    for(int z=1;z<=3;z++){
+    int cnt =0;
+     if(z == y || z == x) continue;
+    for(int i=0;i<N;i++){
+    if(a[i]==x && b[i]==y) cnt++;
+    else if(a[i]==z && b[i]==x) cnt++;
+    else if(a[i]==y && b[i]==z) cnt++;
+    }
+    ans = max(ans,cnt);
+    }
     }
 
-    max_win = max(max_win, win);
-
-    // Case 2. 1이 3을 이기고, 3이 2를 이기고 2가 1을 이기는 경우
-    win = 0;
-    for(int i = 0; i < n; i++) {
-        if(a[i] == 1 && b[i] == 3)
-            win++;
-        else if(a[i] == 3 && b[i] == 2)
-            win++;
-        else if(a[i] == 2 && b[i] == 1)
-            win++;
     }
-    
-    max_win = max(max_win, win);
+    cout << ans;
 
-    cout << max_win;
-    
     return 0;
 }

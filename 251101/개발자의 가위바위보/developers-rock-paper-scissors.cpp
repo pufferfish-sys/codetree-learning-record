@@ -1,46 +1,49 @@
 #include <iostream>
+#include <algorithm>
+
+#define MAX_N 100
+
 using namespace std;
 
-int N;
-int a[100], b[100];
+int n;
+int a[MAX_N], b[MAX_N];
 
 int main() {
-    cin >> N;
-    for(int i=0;i<N;i++) cin >> a[i] >> b[i];
+    // 입력:
+    cin >> n;
 
-    int ans = 0;
+    for(int i = 0; i < n; i++)
+        cin >> a[i] >> b[i];
 
-    // 1,2,3을 가위,바위,보로 매핑하는 모든 순열
-    int perm[6][3] = {
-        {1,2,3}, {1,3,2}, {2,1,3}, 
-        {2,3,1}, {3,1,2}, {3,2,1}
-    };
+    int max_win = 0;
 
-    for(int p=0;p<6;p++){ // 6가지 매핑
-        int win[4][4] = {0};
-
-        int g = perm[p][0]; // 가위
-        int r = perm[p][1]; // 바위
-        int s = perm[p][2]; // 보
-
-        win[g][s] = 1; // 가위>보
-        win[r][g] = 1; // 바위>가위
-        win[s][r] = 1; // 보>바위
-
-        int cnt = 0;
-
-        for(int x=1;x<=3;x++){ // 내 후보
-            for(int y=1;y<=3;y++){ // 상대 후보
-                if(x == y) continue; // 같은 숫자면 승리 아님
-                for(int i=0;i<N;i++){
-                    if(a[i]==x && b[i]==y && win[x][y]) cnt++;
-                }
-            }
-        }
-
-        if(cnt > ans) ans = cnt;
+    // Case 1. 1이 2를 이기고, 2가 3을 이기고 3이 1을 이기는 경우
+    int win = 0;
+    for(int i = 0; i < n; i++) {
+        if(a[i] == 1 && b[i] == 2)
+            win++;
+        else if(a[i] == 2 && b[i] == 3)
+            win++;
+        else if(a[i] == 3 && b[i] == 1)
+            win++;
     }
 
-    cout << ans;
+    max_win = max(max_win, win);
+
+    // Case 2. 1이 3을 이기고, 3이 2를 이기고 2가 1을 이기는 경우
+    win = 0;
+    for(int i = 0; i < n; i++) {
+        if(a[i] == 1 && b[i] == 3)
+            win++;
+        else if(a[i] == 3 && b[i] == 2)
+            win++;
+        else if(a[i] == 2 && b[i] == 1)
+            win++;
+    }
+    
+    max_win = max(max_win, win);
+
+    cout << max_win;
+    
     return 0;
 }

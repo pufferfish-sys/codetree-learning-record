@@ -3,7 +3,7 @@
 using namespace std;
 
 int n;
-int a[100];
+int a[101];
 
 int main() {
     cin >> n;
@@ -21,7 +21,7 @@ int main() {
         if(a[i]==min1) continue;
         if(a[i]<min2){
             min2 = a[i];
-            ans = i;           
+            ans = i;
         }
     }
     for(int i=1;i<=n;i++){

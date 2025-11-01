@@ -10,10 +10,10 @@ int main() {
     for (int i = 0; i < n; i++) cin >> arr[i];
     int cnt = 0 ;
     for(int x=0;x<n;x++){
-        for(int i=0;i<n;i++){
+        for(int i=x;i<n;i++){
         if(arr[i]=='A'+x){
             int j = i;
-            while(arr[x]!='A'+x){
+            while(j>x){
             swap(arr[j],arr[j-1]);
             cnt ++;
             j--;

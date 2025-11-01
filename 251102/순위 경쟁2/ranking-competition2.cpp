@@ -6,7 +6,7 @@ int n;
 char c[100];
 int s[100];
 int a = 0 ,b =0;
-bool ahonor = false, bhonor=false;
+bool ahonor = true, bhonor=true;
 int main() {
     cin >> n;
     for (int i = 0; i < n; i++) {

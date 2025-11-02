@@ -1,5 +1,5 @@
 #include <iostream>
-#include <climits>
+#include <algorithm>
 using namespace std;
 
 int n;
@@ -7,21 +7,14 @@ int arr[100000];
 
 int main() {
     cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
+    for(int i=0;i<n;i++) cin >> arr[i];
 
-    int mx = INT_MIN; 
-    for(int x=0; x<n;x++){
-        for(int y=x+1; y<n;y++){
-            if(x==y)continue;
-        for(int z=y+1; z<n;z++){
-            if( z==x||z==y) continue;
-          mx=max(mx,arr[x]*arr[y]*arr[z]);          
-   }
-   }
+    sort(arr, arr+n);
+    
+    int prod1 = arr[n-1] * arr[n-2] * arr[n-3];
 
-   }
-    cout << mx;
-    return 0;
+    int prod2 = arr[0] * arr[1] * arr[n-1];
+
+    if(prod1 > prod2) cout << prod1;
+    else cout << prod2;
 }

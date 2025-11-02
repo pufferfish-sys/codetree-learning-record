@@ -18,8 +18,7 @@ int main() {
     for(int i=0;i<n;i++){
         if(arr[i]==1) {cnt++;i+=2*m;}
     }
-    if(m>=n) if(sum>=1)cnt=1;
-    else cnt =0;
+
     cout << cnt;
 
     return 0;

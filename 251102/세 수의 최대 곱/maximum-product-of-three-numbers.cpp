@@ -15,6 +15,7 @@ int main() {
 
     int prod2 = arr[0] * arr[1] * arr[n-1];
 
-    if(prod1 > prod2) cout << prod1;
-    else cout << prod2;
+    int ans = max(prod1,prod2);
+
+    cout << ans;
 }

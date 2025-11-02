@@ -16,7 +16,7 @@ int main() {
     }
     int cnt=0;
     if((loc1==loc3&&loc3==loc5)||(loc2==loc4&&loc4==loc6)){
-        cnt=abs(loc1-loc5)+abs(loc2-loc6)+2;
+        cnt=abs(loc1-loc5)+abs(loc2-loc6)+1;
     }
     else{
         cnt=abs(loc1-loc5)+abs(loc2-loc6)-1;

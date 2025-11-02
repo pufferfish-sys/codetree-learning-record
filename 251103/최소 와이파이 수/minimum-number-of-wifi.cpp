@@ -16,6 +16,7 @@ int main() {
         if(arr[i]==1) cnt++;
         i+=m;
     }
+    if(m>=n) cnt=1;
     cout << cnt;
 
     return 0;

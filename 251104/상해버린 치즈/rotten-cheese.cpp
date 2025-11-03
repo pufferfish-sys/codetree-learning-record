@@ -19,19 +19,27 @@ int main() {
 
     for(int i=0; i<S;i++){
         for(int j=0;j<D;j++){
+            if(potential[m[j]]=1) continue;
             if(p[j]==sick_p[i]&&t[j]<sick_t[i]) {
-            potential[m[j]]=1;
-            for(int x=0;x<D;x++){
-                if(m[x]==m[j] && p[x]!=sick_p[i]){
-                    if(t[x]>=sick_t[i]-1){potential[m[j]]=0;break;} 
+                potential[m[j]]=1;
+                for(int x=0;x<S;x++){
+                    bool drank = false;
+                    for(int y=0;y<D;y++){
+                        if(p[y]==sick_p[x] && m[y]==m[j] && t[y]<sick_t[x]) {
+                            drank = true;
+                        break;
+                    }
                 }
-                
-            }
-            
+                if(!drank){ 
+                    potential[m[j]] = 0;
+                    break;
+                }
             }
         }
-        
     }
+}
+
+
 
     int ans =0;
 
@@ -41,9 +49,7 @@ int main() {
         for(int j=0;j<D;j++){
             if(m[j]==i) person[p[j]]=1;
         }
-
         int cnt =0;
-
         for(int j=1;j<=N;j++){
             if(person[j]==1) cnt++;
         }

@@ -22,7 +22,7 @@ int main() {
             if(p[j]==sick_p[i]&&t[j]<sick_t[i]) {
             potential[m[j]]=1;
             for(int x=0;x<S;x++){
-                if(m[x]==potential[m[j]]){
+                if(m[x]==m[j]){
                     if(t[x]>sick_t[i]){potential[m[j]]=0;break;} 
                 }
                 

@@ -1,26 +1,22 @@
 #include <iostream>
 
+#define MAX_N 100
+
 using namespace std;
 
 int n;
-int arr[100];
+int blocks[MAX_N];
 
 int main() {
+    
     cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    int cnt = 0;
-        for(int i = 0; i < n; i++) {
-            bool flag = false;
-            for(int j = i; j < n - 1; j++) {
-                if(arr[j] > arr[j + 1]) {
-                    flag = true;
-                }
-            }
-            if(flag) cnt++;
-        }
-    cout << cnt;
+    for(int i = 0; i < n; i++)
+        cin >> blocks[i];
+    
+    int idx = n - 2;
+    while(idx >= 0 && blocks[idx] < blocks[idx + 1])
+        idx--;
 
+    cout << idx + 1;
     return 0;
 }

@@ -18,8 +18,8 @@ int main() {
     }
 
     for(int drink=1; drink<=M; drink++){
-        bool ok = true;
         for(int i=0;i<S;i++){
+            if(potential[drink]==1) break;
             bool drank = false;
             for(int j=0;j<D;j++){
                 if(p[j]==sick_p[i] && m[j]==drink && t[j]<sick_t[i]){
@@ -27,12 +27,9 @@ int main() {
                     break;
                 }
             }
-            if(!drank){
-                ok = false;
-                break;
-            }
+            if(drank) potential[drink]=1;
         }
-        if(ok) potential[drink]=1;
+        
     }
 
 

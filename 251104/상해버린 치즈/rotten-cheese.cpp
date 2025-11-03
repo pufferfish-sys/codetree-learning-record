@@ -17,21 +17,27 @@ int main() {
         cin >> sick_p[i] >> sick_t[i];
     }
 
-    for(int i=0; i<S;i++){
+for(int i=0; i<S;i++){
     for(int j=0;j<D;j++){
         if(p[j]==sick_p[i]&&t[j]<sick_t[i]) {
             potential[m[j]]=1;
-            for(int x=0;x<D;x++){
-                if(m[x]==m[j] && p[x]==sick_p[i]){
-                    if(t[x]>sick_t[i]){
-                        potential[m[j]]=0;
+            for(int x=0;x<S;x++){
+                bool drank = false;
+                for(int y=0;y<D;y++){
+                    if(p[y]==sick_p[x] && m[y]==m[j] && t[y]<sick_t[x]) {
+                        drank = true;
                         break;
-                    } 
+                    }
+                }
+                if(!drank){ 
+                    potential[m[j]] = 0;
+                    break;
                 }
             }
         }
     }
 }
+
 
 
     int ans =0;

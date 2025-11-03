@@ -29,7 +29,7 @@ int main() {
         if(potential[i]==0) continue;
         int person[51]={0,};
         for(int j=0;j<D;j++){
-            if(m[j]==potential[i]) person[p[j]]=1;
+            if(m[j]==i) person[p[j]]=1;
         }
         int cnt =0;
         for(int j=1;j<=N;j++){

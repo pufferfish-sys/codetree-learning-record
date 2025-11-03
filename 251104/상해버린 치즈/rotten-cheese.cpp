@@ -17,7 +17,7 @@ int main() {
         cin >> sick_p[i] >> sick_t[i];
     }
 
-    or(int i=0; i<S;i++){
+    for(int i=0; i<S;i++){
     for(int j=0;j<D;j++){
         if(p[j]==sick_p[i]&&t[j]<sick_t[i]) {
             potential[m[j]]=1;

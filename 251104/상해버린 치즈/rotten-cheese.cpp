@@ -22,19 +22,18 @@ int main() {
             if(potential[m[j]]==1) continue;
             if(p[j]==sick_p[i]&&t[j]<sick_t[i]) {
                 potential[m[j]]=1;
-                for(int x=0;x<S;x++){
-                    bool drank = false;
-                    for(int y=0;y<D;y++){
-                        if(p[y]==sick_p[x] && m[y]==m[j] && t[y]<sick_t[x]) {
-                            drank = true;
-                        break;
+                bool drank = false;
+                for(int y=0;y<D;y++){
+                if(p[y]==sick_p[i] && m[y]==m[j] && t[y]<sick_t[i]) {
+                   drank = true;
+                   break;
                     }
                 }
                 if(!drank){ 
                     potential[m[j]] = 0;
                     break;
                 }
-            }
+            
         }
     }
 }

@@ -17,24 +17,18 @@ int main() {
         cin >> sick_p[i] >> sick_t[i];
     }
 
-    for(int x=1; x<=M; x++){
-        bool flag = true;
-        for(int i=0;i<S;i++){
-            bool drank = false;
-            for(int j=0;j<D;j++){
-                if(p[j]==sick_p[i] && m[j]==x && t[j]<sick_t[i]){
-                    drank = true;
-                    break;
-                }
-            }
-            if(!drank){
-                flag = false;
+for(int x=1;x<=M;x++){
+    int cnt = 0;
+    for(int i=0; i<S;i++){
+        for(int j=0;j<D;j++){
+            if(p[j]==sick_p[i]&&t[j]<sick_t[i]&&m[j]==x){
+                cnt++;
                 break;
             }
-        }
-        if(flag) potential[x]=1;
     }
-
+}
+    if(cnt==S) potential[x]=1;
+}
 
 
     int ans =0;
@@ -45,7 +39,9 @@ int main() {
         for(int j=0;j<D;j++){
             if(m[j]==i) person[p[j]]=1;
         }
+
         int cnt =0;
+
         for(int j=1;j<=N;j++){
             if(person[j]==1) cnt++;
         }
@@ -55,4 +51,3 @@ int main() {
 
     return 0;
 }
-

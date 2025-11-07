@@ -1,39 +1,44 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
+
+#define MAX_N 100000
+#define MAX_K 6
+#define MAX_DIGIT 10
+
 using namespace std;
 
+// 변수 선언
 int n;
-int arr[100000];
+int arr[MAX_N];
 
-int main() {
-    cin >> n;
+void RadixSort() {
+    int p = 1;
+    for(int pos = 0; pos < MAX_K; pos++) {
+        vector<int> arr_new[MAX_DIGIT];
+        for(int i = 0; i < n; i++) {
+            int digit = (arr[i] / p) % 10;
+            arr_new[digit].push_back(arr[i]);
+        }
 
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+        int index = 0;
+        for(int i = 0; i < MAX_DIGIT; i++)
+            for(int j = 0; j < (int) arr_new[i].size(); j++)
+                arr[index++] = arr_new[i][j];
+        
+        p *= 10;
     }
-    //자릿수
-    for(int i=0;i<=5;i++){
-        vector<vector<int>> v(10);
-        for(int j=0;j<n;j++){
-            int digit=(int)(arr[j]/pow(10,i))%10;
-            v[digit].push_back(arr[j]);
-        }
-        vector<int> vv;
-        for(int i=0;i<10;i++){
-            for(int j=0;j<v[i].size();j++){
-                vv.push_back(v[i][j]);
-            }
-        }
-        for(int i=0;i<n;i++){
-            
-            arr[i]=vv[i];
-        }
-    }
-    
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
-    return 0;
 }
 
+int main() {
+    // 입력
+    cin >> n;
+
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    
+    RadixSort();
+
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    return 0;
+}

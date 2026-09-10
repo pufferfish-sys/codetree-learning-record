@@ -3,11 +3,11 @@
 using namespace std;
 
 int n, m;
-void swap(int &a, int &b){
+void swap(int *a, int *b){
     int temp;
-    temp = a;
-    a = b;
-    b = temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
 
 }
 int main() {

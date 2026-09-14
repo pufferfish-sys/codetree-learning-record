@@ -6,16 +6,18 @@ int n;
 int arr[10];
 
 int findAns(int a, int b){
-    int gcd =1;
+    int gcd = 1;
     for(int i = 1; i <= min(a,b); i++){
-        if(b % i == 0 && a % i == 0) gcd = i;
+        if(a % i == 0 && b % i == 0){
+            gcd = i;
+        }
     }
-    return a*b / gcd;      
+    return a * b / gcd;
 }
 
 int calc(int N){
     if(N == 1) return arr[1];
-    return findAns(calc(N-1), arr[N]);
+    return findAns(calc(N-1),arr[N]);
 }
 
 int main() {

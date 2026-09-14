@@ -7,9 +7,8 @@ class User{
     public:
         string id;
         int level;
-        User(string id = "", int level = 0){
-            this->id = id;
-            this->level = level;
+        User(string id = "", int level = 0)
+        : id(id),level(level){
         }
 
 };

@@ -6,13 +6,15 @@ int a, b, c, d;
 
 int main() {
     cin >> a >> b >> c >> d;
+    int count = 0;
+    while(true){
+    if(a == c && b == d) break;
     
-    int sum = 0;
-    sum = (c-a)*60 + d - b;
+    count++; b++;
+    if(b == 60) {b = 0; a++;}
+    }
     
-    cout << sum ;
-
-    // Please write your code here.
+    cout << count;
 
     return 0;
 }

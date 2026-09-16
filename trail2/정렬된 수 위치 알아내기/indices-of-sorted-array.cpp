@@ -25,7 +25,9 @@ bool cmd(Info a, Info b){
 
 int main() {
     cin >> N;
-    int answers[1000];
+
+    int index[1000];
+
     for (int i = 0; i < N; i++) {
         cin >> sequence[i];
         info[i] = Info(sequence[i],i+1);
@@ -33,12 +35,16 @@ int main() {
 
     sort(info,info+N,cmd);
 
-    for (int i = 0; i < N; i++) {
-        answers[info[i].number] = i + 1;
+    for (int i = 0; i < N; i++){
+        index[info[i].number] = i+1;
     }
-    for (int i = 1; i <= N; i++) {
-        cout << answers[i] << " " ;
+
+    for (int i = 0; i < N; i++){
+        cout << index[i+1] << " ";
     }
+
+
+    
 
     return 0;
 }

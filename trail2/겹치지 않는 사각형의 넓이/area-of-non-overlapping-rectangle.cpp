@@ -11,22 +11,17 @@ int main() {
     cin >> x1[0] >> y1[0] >> x2[0] >> y2[0];
     cin >> x1[1] >> y1[1] >> x2[1] >> y2[1];
     cin >> x1[2] >> y1[2] >> x2[2] >> y2[2];
-    for(int i = 0 ; i <= 1 ;i++){
+    for(int i = 0 ; i <= 2 ;i++){
         for(int j = offset+x1[i]; j < offset+x2[i]; j++){
             for(int k = offset+y1[i]; k < offset+y2[i]; k++){
-                blocks[j][k] = 1;
+                blocks[j][k] = i + 1;
             }
-        }
-    }
-    for(int j = offset+x1[2]; j < offset+x2[2]; j++){
-        for(int k = offset+ y1[2]; k < offset+y2[2]; k++){
-            if(blocks[j][k] == 1) blocks[j][k] = 0;
         }
     }
     int ans = 0;
     for(int i = 0; i<=2000;i++){
         for(int j = 0; j <= 2000; j++){
-            if(blocks[i][j]==1) ans++;
+            if(blocks[i][j] == 1 || blocks[i][j]==2) ans++;
         }
     }
     cout << ans;

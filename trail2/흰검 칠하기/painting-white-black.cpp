@@ -23,15 +23,17 @@ int main() {
             for(int j = 0; j < x[i]; j++){
                 white[offset]++;
                 blocks_color[offset] = 1;
-                if(j!=x[i]-1) offset--;
+                offset--;
             }
+            offset++;
         }
         else {
             for(int j = 0; j < x[i]; j++){
                 black[offset]++;
                 blocks_color[offset] = 2;
-                if(j!=x[i]-1) offset++;
+                offset++;
             }
+            offset--;
         }
     }
     for(int i =0; i <= 200000; i++){

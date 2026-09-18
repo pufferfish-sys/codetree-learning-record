@@ -16,7 +16,7 @@ int main() {
     int offset = 1000;
     for(int i=0; i < n; i++){
         if(dir[i]=='L'){
-        for(int j = x[i]; j > 0; j--){
+        for(int j = 0; j < x[i]; j++){
                 blocks[--offset]++;
         }
         }

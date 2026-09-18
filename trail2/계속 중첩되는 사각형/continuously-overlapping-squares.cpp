@@ -5,7 +5,7 @@ using namespace std;
 int n;
 int x1[11], y1[11];
 int x2[11], y2[11];
-int blocks[200][200] = {0,};
+int blocks[201][201] = {0,};
 
 int main() {
     cin >> n;
@@ -31,8 +31,8 @@ int main() {
         }
     }
     int ans = 0;
-    for(int i=0;i<200;i++){
-        for(int j=0;j<200;j++){
+    for(int i=0;i<=200;i++){
+        for(int j=0;j<=200;j++){
             if(blocks[i][j] == 2 ) ans++;
         }
     }

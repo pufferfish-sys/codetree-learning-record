@@ -4,7 +4,7 @@ using namespace std;
 
 int n;
 int x1[100], x2[100];
-int arr[10001];
+int arr[101];
 int main() {
     cin >> n;
 
@@ -17,7 +17,7 @@ int main() {
         }
     }
     int mx =0;
-    for(int i = 0; i<=10000; i++){
+    for(int i = 0; i<=100; i++){
         mx = max(mx,arr[i]);
     }
     cout << mx;

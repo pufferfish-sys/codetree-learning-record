@@ -2,51 +2,53 @@
 
 using namespace std;
 
-int n;
-int x[1000];
-char dir[1000];
-int blocks_color[200001] = {0,};
-int white[200001] = {0,};
-int black[200001] = {0,};
+int blocks_color[200001];
+int white[200001];
+int black[200001];
 
 int main() {
+    int n;
     cin >> n;
 
-    for (int i = 0; i < n; i++) {
-        cin >> x[i] >> dir[i];
-    }
+    const int OFFSET = 100000;
+    int cur = OFFSET;
 
-    int offset = 100000;
+    for(int i = 0; i < n; i++) {
+        int x;
+        char dir;
 
-    for (int i = 0; i < n; i++){
-        if(dir[i] == 'L'){
-            for(int j = 0; j < x[i]; j++){
-                white[offset]++;
-                blocks_color[offset] = 1;
-                offset--;
+        cin >> x >> dir;
+
+        if(dir == 'L') {
+            for(int j = 0; j < x; j++) {
+                white[cur]++;
+                blocks_color[cur] = 1;
+                cur--;
             }
-            offset++;
+            cur++;
         }
         else {
-            for(int j = 0; j < x[i]; j++){
-                black[offset]++;
-                blocks_color[offset] = 2;
-                offset++;
+            for(int j = 0; j < x; j++) {
+                black[cur]++;
+                blocks_color[cur] = 2;
+                cur++;
             }
-            offset--;
+            cur--;
         }
     }
-    for(int i =0; i <= 200000; i++){
-        if(white[i]>=2 && black[i]>=2) blocks_color[i] = 3;
+
+    int w = 0, b = 0, g = 0;
+
+    for(int i = 0; i <= 200000; i++) {
+        if(white[i] >= 2 && black[i] >= 2)
+            g++;
+        else if(blocks_color[i] == 1)
+            w++;
+        else if(blocks_color[i] == 2)
+            b++;
     }
 
-    int w = 0, b = 0, g = 0; 
-    for(int i =0; i <= 200000; i++){
-        if(blocks_color[i]==1) w++;
-        else if(blocks_color[i]==2) b++;
-        else if(blocks_color[i]==3) g++;
-    }
-    cout << w << " " << b << " " << g; 
+    cout << w << " " << b << " " << g;
 
     return 0;
 }
